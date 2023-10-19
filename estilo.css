@@ -1,1 +1,26 @@
 /*David Gonzalez Gonzalez UO291047*/ 
+
+/*
+Ivory - Background
+#EBECE0
+
+Red
+#EF3340
+
+Cool Grey - Foreground
+#444444
+*/
+
+/*Especificidad: 001*/
+body{
+    font-family: "Century Gothic", "Trebuchet MS", sans-serif;
+    font-size: 1.2em;
+    background-color: #EBECE0;
+    color: #444444;
+}
+
+/*Especificidad: 001*/
+h1{
+    font-family: "Arial Rounded MT Bold", "Arial Black", sans-serif;
+    
+}
