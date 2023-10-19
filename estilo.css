@@ -19,8 +19,8 @@ body{
     color: #444444;
 }
 
-/*Especificidad: 001*/
-h1{
+/*Especificidad: 001 , 001, 001*/
+h1, h2, h3{
     font-family: "Arial Rounded MT Bold", "Arial Black", sans-serif;
-    
+    font-size: 1.3em;
 }
