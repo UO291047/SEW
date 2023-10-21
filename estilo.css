@@ -22,5 +22,12 @@ body{
 /*Especificidad: 001 , 001, 001*/
 h1, h2, h3{
     font-family: "Arial Rounded MT Bold", "Arial Black", sans-serif;
-    font-size: 1.3em;
+}
+
+a:link{
+    color: #9D0B15
+}
+
+a:visited{
+    color: #800A12
 }
