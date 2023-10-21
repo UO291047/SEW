@@ -19,15 +19,41 @@ body{
     color: #444444;
 }
 
-/*Especificidad: 001 , 001, 001*/
-h1, h2, h3{
+/*Especificidad: 001 , 001, 001, 001, 001, 001*/
+h1, h2, h3, h4, h5, h6{
     font-family: "Arial Rounded MT Bold", "Arial Black", sans-serif;
 }
 
+/*Especificidad: 011*/
 a:link{
     color: #9D0B15
 }
 
+/*Especificidad: 011*/
 a:visited{
     color: #0B5633
 }
+
+/*Especificidad: 011*/
+ol{
+    list-style-type: upper-roman;
+}
+
+@counter-style triangle {
+    system: cyclic;
+    symbols: ‣;
+    suffix: " ";
+}
+
+/*Especificidad: 001*/
+ul{
+    list-style-type: triangle;
+}
+
+/*Especificidad: 001, 001*/
+li, p{
+    line-height: 1.5em;
+}
+
+
+
