@@ -80,6 +80,13 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 3px solid #444444;
+    align-items: center;
+}
+
+/*Especificidad: 001*/
+tr {
+    font-weight: bold;
+    background-color: #C5C6A4;
 }
 
 /*Especificidad: 001, 001*/
@@ -99,13 +106,13 @@ tbody tr:nth-child(even) {
 
 /*Especificidad: 001*/
 img{
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
 /*Especificidad: 001*/
 video{
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
