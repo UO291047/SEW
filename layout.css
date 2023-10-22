@@ -1,0 +1,20 @@
+/*David Gonzalez Gonzalez UO291047*/ 
+
+/*Especificidad: 001*/
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 200px;
+}
+
+@media (prefers-contrast: high) {
+    a {
+        font-weight: bold;
+    }
+    a:visited{
+        background-color: #0000EB;
+    }
+  }
