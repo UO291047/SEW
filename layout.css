@@ -10,11 +10,8 @@ header{
     flex: 200px;
 }
 
-@media (prefers-contrast: high) {
+@media (min-width: 600px) {
     a {
         font-weight: bold;
-    }
-    a:visited{
-        background-color: #0000EB;
     }
   }
