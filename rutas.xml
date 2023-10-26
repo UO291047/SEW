@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas>
+    <ruta nombre="Ruta 1" adecuada-para="ir con niños" medio-transporte="a pie">
+        <tipo>"Arquitectura y monumentos"</tipo>
+        <informacion>
+            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Calle 0</direccion>
+                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>Agencia de viajes de Tanzania</gestion>
+            <descripcion>
+                <texto>"Esta ruta es genial"</texto>
+                <referencias>
+                    <referencia>Link 1</referencia>
+                    <referencia>Link 2</referencia>
+                    <referencia>Link 3</referencia>
+                </referencias>
+                <puntuacion>7</puntuacion>
+                <hitos>
+                    <hito nombre="Hito 1">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 2">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+    <ruta nombre="Ruta 2" adecuada-para="ir con niños" medio-transporte="a pie">
+        <tipo>"Arquitectura y monumentos"</tipo>
+        <informacion>
+            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Calle 0</direccion>
+                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>Agencia de viajes de Tanzania</gestion>
+            <descripcion>
+                <texto>"Esta ruta es genial"</texto>
+                <referencias>
+                    <referencia>Link 1</referencia>
+                    <referencia>Link 2</referencia>
+                    <referencia>Link 3</referencia>
+                </referencias>
+                <puntuacion>7</puntuacion>
+                <hitos>
+                    <hito nombre="Hito 1">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 2">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+    <ruta nombre="Ruta 3" adecuada-para="ir con niños" medio-transporte="a pie">
+        <tipo>"Arquitectura y monumentos"</tipo>
+        <informacion>
+            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Calle 0</direccion>
+                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>Agencia de viajes de Tanzania</gestion>
+            <descripcion>
+                <texto>"Esta ruta es genial"</texto>
+                <referencias>
+                    <referencia>Link 1</referencia>
+                    <referencia>Link 2</referencia>
+                    <referencia>Link 3</referencia>
+                </referencias>
+                <puntuacion>7</puntuacion>
+                <hitos>
+                    <hito nombre="Hito 1">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 2">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+</rutas>
