@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rutas xmlns="http://tempuri.org/rutas"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tempuri.org/rutas rutas.xsd">
+
+    <ruta nombre="Ascenso Kilimanjaro - Ruta Machame" adecuada-para="adultos en buena forma física" medio-transporte="a pie">
+        <tipo>Senderismo y exploración</tipo>
+        <informacion>
+            <horario fecha-inicio="11/11/2023" hora-inicio="8:00" duracion="7 días"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Machame Gate</direccion>
+                <coordenadas longitud="-3.165738" latitud="37.2179068" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>The Adventure People</gestion>
+            <descripcion>
+                <texto>
+                    Experimentar la cumbre y la maravilla de la montaña independiente más alta del mundo.
+                    Trekking a través de la flora y fauna únicas e increíblemente variadas, exuberantes selvas tropicales y desiertos alpinos hasta vastos campos de hielo y gloriosos glaciares.
+                    Un gran guía y un equipo experimentado: ¡todo lo que necesita preocuparse es poner un pie delante del otro!
+                    Se incluye un día extra para ayudar con la aclimatación y maximizar sus posibilidades de llegar a la cumbre
+                    ¡Increíbles amaneceres sobre las llanuras debajo de ti, después de tus llamadas de despertar temprano en la mañana!
+                </texto>
+                <referencias>
+                    <referencia>https://theadventurepeople.com/tour/climb-kilimanjaro-machame-route-7-days/AK1011</referencia>
+                    <referencia>https://es.wikipedia.org/wiki/Kilimanjaro</referencia>
+                    <referencia>https://www.youtube.com/watch?v=RTtmALKkx9E</referencia>
+                </referencias>
+                <puntuacion>10</puntuacion>
+                <hitos>
+                    <hito nombre="Lava Tower">
+                        <texto>
+                            La Torre de Lava se formó hace más de 150.000 años como resultado de la actividad volcánica, cuando el Monte Kilimanjaro todavía era un volcán triple.
+                            Es como esta torre que la lava arrojó y salió disparada a través de donde ahora se encuentra la Torre de lava,
+                            se enfrió y se endureció, bloqueando así la ventilación de la lava desde debajo de ella.
+                        </texto>
+                        <coordenadas longitud="-3.3507455" latitud="37.3073635" altitud="4630"></coordenadas>
+                        <distancia-anterior unidades="km">11</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>"multimedia/imagenes/imagenLavaTower1.jpg"</foto>
+                                <foto>"multimedia/imagenes/imagenLavaTower2.jpg"</foto>
+                            </fotos>
+                            <videos>
+                                <video>"multimedia/videos/videoLavaTower.mp4"</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Uhuru Peak">
+                        <texto>
+                            El pico Uhuru se encuentra en Kibo, que es el más alto de los tres picos que componen el monte Kilimanjaro, 
+                            junto con Mawenzi a 5.149 metros de altura y Shira a 3.962 metros de altura. 
+                            El nombre Uhuru significa "libertad" en swahili y se le dio al sitio en 1961 cuando Tanganica, 
+                            ahora parte de Tanzania, se independizó del Reino Unido.
+                        </texto>
+                        <coordenadas longitud="-3.0667241" latitud="37.3376152" altitud="5895"></coordenadas>
+                        <distancia-anterior unidades="km">15</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>"multimedia/imagenes/imagenUhuruPeakKilimanjaro1.jpg"</foto>
+                                <foto>"multimedia/imagenes/imagenUhuruPeakKilimanjaro2.jpg"</foto>
+                            </fotos>
+                            <videos>
+                                <video>"multimedia/videos/videoUhuruPeak.mp4"</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 3">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+    <ruta nombre="Ruta 2" adecuada-para="ir con niños" medio-transporte="a pie">
+        <tipo>"Arquitectura y monumentos"</tipo>
+        <informacion>
+            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Calle 0</direccion>
+                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>Agencia de viajes de Tanzania</gestion>
+            <descripcion>
+                <texto>"Esta ruta es genial"</texto>
+                <referencias>
+                    <referencia>Link 1</referencia>
+                    <referencia>Link 2</referencia>
+                    <referencia>Link 3</referencia>
+                </referencias>
+                <puntuacion>7</puntuacion>
+                <hitos>
+                    <hito nombre="Hito 1">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 2">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 3">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+    <ruta nombre="Ruta 3" adecuada-para="ir con niños" medio-transporte="a pie">
+        <tipo>"Arquitectura y monumentos"</tipo>
+        <informacion>
+            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Calle 0</direccion>
+                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>Agencia de viajes de Tanzania</gestion>
+            <descripcion>
+                <texto>"Esta ruta es genial"</texto>
+                <referencias>
+                    <referencia>Link 1</referencia>
+                    <referencia>Link 2</referencia>
+                    <referencia>Link 3</referencia>
+                </referencias>
+                <puntuacion>7</puntuacion>
+                <hitos>
+                    <hito nombre="Hito 1">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 2">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Hito 3">
+                        <texto>"Este hito es genial"</texto>
+                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">0</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>Foto 1</foto>
+                                <foto>Foto 2</foto>
+                            </fotos>
+                            <videos>
+                                <video>Video 1</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+</rutas>
