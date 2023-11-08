@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="15">
+        <Folder id="16">
+            <Style id="19">
+                <LineStyle id="20">
+                    <color>ff0000ff</color>
+                    <colorMode>normal</colorMode>
+                </LineStyle>
+            </Style>
+            <name>Playas de Zanzíbar</name>
+            <Placemark id="18">
+                <name>Ruta</name>
+                <styleUrl>#19</styleUrl>
+                <LineString id="17">
+                    <extrude>1</extrude>
+                    <tessellate>1</tessellate>
+                    <coordinates>39.2008333,-6.2708333,0.0 39.2474987,-6.2851948,0.0 39.2617106,-6.2802841,0.0 39.1437803,-6.1742852,0.0</coordinates>
+                </LineString>
+            </Placemark>
+        </Folder>
+    </Document>
+</kml>

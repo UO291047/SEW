@@ -11,7 +11,7 @@
             <ubicacion>
                 <lugar>Tanzania</lugar>
                 <direccion>Machame Gate</direccion>
-                <coordenadas longitud="-3.165738" latitud="37.2179068" altitud="0"></coordenadas>
+                <coordenadas latitud="37.2179068" longitud="-3.165738" altitud="0"></coordenadas>
             </ubicacion>
             <gestion>The Adventure People</gestion>
             <descripcion>
@@ -35,7 +35,7 @@
                             Es como esta torre que la lava arrojó y salió disparada a través de donde ahora se encuentra la Torre de lava,
                             se enfrió y se endureció, bloqueando así la ventilación de la lava desde debajo de ella.
                         </texto>
-                        <coordenadas longitud="-3.3507455" latitud="37.3073635" altitud="4630"></coordenadas>
+                        <coordenadas latitud="37.3246396" longitud="-3.0761700" altitud="4444.8377248"></coordenadas>
                         <distancia-anterior unidades="km">11</distancia-anterior>
                         <galeria>
                             <fotos>
@@ -47,6 +47,23 @@
                             </videos>
                         </galeria>
                     </hito>
+                    <hito nombre="Barranco Wall">
+                        <texto>
+                            La elevación del Muro de Barranco tiene 257 metros de altura y está ubicada en la ladera del Monte Kilimanjaro. 
+                            El Muro de Barranco es lo que los escaladores llamarían una lucha, lo que significa que no requiere habilidades de montañismo para atravesar el área.
+                        </texto>
+                        <coordenadas latitud="37.3348306" longitud="-3.0971200" altitud="4157.7920453"></coordenadas>
+                        <distancia-anterior unidades="km">4</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>"multimedia/imagenes/imagenBarrancoWall1.jpg"</foto>
+                                <foto>"multimedia/imagenes/imagenBarrancoWall2.jpg"</foto>
+                            </fotos>
+                            <videos>
+                                <video>"multimedia/videos/videoBarrancoWall.mp4"</video>
+                            </videos>
+                        </galeria>
+                    </hito>
                     <hito nombre="Uhuru Peak">
                         <texto>
                             El pico Uhuru se encuentra en Kibo, que es el más alto de los tres picos que componen el monte Kilimanjaro, 
@@ -54,8 +71,8 @@
                             El nombre Uhuru significa "libertad" en swahili y se le dio al sitio en 1961 cuando Tanganica, 
                             ahora parte de Tanzania, se independizó del Reino Unido.
                         </texto>
-                        <coordenadas longitud="-3.0667241" latitud="37.3376152" altitud="5895"></coordenadas>
-                        <distancia-anterior unidades="km">15</distancia-anterior>
+                        <coordenadas latitud="37.3541009" longitud="-3.0768127" altitud="5878.7311655"></coordenadas>
+                        <distancia-anterior unidades="km">11</distancia-anterior>
                         <galeria>
                             <fotos>
                                 <foto>"multimedia/imagenes/imagenUhuruPeakKilimanjaro1.jpg"</foto>
@@ -66,17 +83,81 @@
                             </videos>
                         </galeria>
                     </hito>
-                    <hito nombre="Hito 3">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
+                </hitos>
+            </descripcion>
+        </informacion>
+    </ruta>
+    <ruta nombre="Reserva de Fauna del Serengeti" adecuada-para="Amantes de la vida silvestre" medio-transporte="Safari en vehículo">
+        <tipo>Observación de vida silvestre</tipo>
+        <informacion>
+            <horario fecha-inicio="15/12/2023" hora-inicio="6:00" duracion="5 días"></horario>
+            <ubicacion>
+                <lugar>Tanzania</lugar>
+                <direccion>Reserva de Fauna del Serengeti</direccion>
+                <coordenadas latitud="34.8333333" longitud="-2.3333333" altitud="0"></coordenadas>
+            </ubicacion>
+            <gestion>Safari Adventures Tanzania</gestion>
+            <descripcion>
+                <texto>
+                    Experimenta la belleza de la vida silvestre africana en la Reserva de Fauna del Serengeti. 
+                    Este safari te llevará a través de las llanuras interminables y te dará la oportunidad de ver leones, 
+                    elefantes, cebras y más en su hábitat natural.
+                </texto>
+                <referencias>
+                    <referencia>"https://patrimonioactual.com/page/parque-nacional-de-serengueti-ngorongoro-tanzania-uno-de-los-mejores-santuarios-de-vida-silvestre-en-el-mundo/"</referencia>
+                    <referencia>"https://antropocene.it/es/2022/12/07/parque-nacional-del-serengeti/"</referencia>
+                    <referencia>"https://africaatumedida.com/parque-nacional-serengeti/"</referencia>
+                </referencias>
+                <puntuacion>10</puntuacion>
+                <hitos>
+                    <hito nombre="Leones">
+                        <texto>
+                            Observa a un majestuoso león descansando bajo la sombra de un árbol junto al resto de su manada, en la reserva de leones más grande del mundo.
+                        </texto>
+                        <coordenadas latitud="35.1363853" longitud="-2.6694986" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">5</distancia-anterior>
                         <galeria>
                             <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
+                                <foto>"multimedia/imagenes/leones1.jpg"</foto>
+                                <foto>"multimedia/imagenes/leones2.jpg"</foto>
                             </fotos>
                             <videos>
-                                <video>Video 1</video>
+                                <video>"multimedia/videos/leones.mp4"</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="Manada de Elefantes">
+                        <texto>
+                            Disfruta de la vista de una manada de elefantes mientras se reúnen alrededor de un punto de agua.
+                        </texto>
+                        <coordenadas latitud="34.9207008" longitud="-2.6640752" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">10</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>"multimedia/imagenes/elefantes1.jpg"</foto>
+                                <foto>"multimedia/imagenes/elefantes2.jpg"</foto>
+                            </fotos>
+                            <videos>
+                                <video>"multimedia/videos/elefantes.mp4"</video>
+                            </videos>
+                        </galeria>
+                    </hito>
+                    <hito nombre="La Gran Migración">
+                        <texto>
+                            Es aquí, en las vastas llanuras del Serengeti, donde uno de los ciclos naturales más impresionantes de la tierra se ha desarrollado 
+                            durante muchos años, ya que cientos de miles de animales, impulsados por los primitivos instintos de supervivencia, 
+                            se mueven constantemente en busca de pastizales frescos. Los más famosos y numerosos son los ñus (de los cuales hay alrededor de 1,5 millones), 
+                            siempre acompañados por miles de Cebras guiándoles debido a su maravillosa memoria.
+                        </texto>
+                        <coordenadas latitud="34.8898671" longitud="-2.3524246" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">8</distancia-anterior>
+                        <galeria>
+                            <fotos>
+                                <foto>"multimedia/imagenes/migracion1.jpg"</foto>
+                                <foto>"multimedia/imagenes/migracion2.jpg"</foto>
+                            </fotos>
+                            <videos>
+                                <video>"multimedia/videos/migracion.mp4"</video>
                             </videos>
                         </galeria>
                     </hito>
@@ -84,129 +165,70 @@
             </descripcion>
         </informacion>
     </ruta>
-    <ruta nombre="Ruta 2" adecuada-para="ir con niños" medio-transporte="a pie">
-        <tipo>"Arquitectura y monumentos"</tipo>
+    <ruta nombre="Playas de Zanzíbar" adecuada-para="Todas las edades" medio-transporte="A pie">
+        <tipo>Playas y descanso</tipo>
         <informacion>
-            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
+            <horario fecha-inicio="20/12/2023" hora-inicio="9:00" duracion="4 días"></horario>
             <ubicacion>
                 <lugar>Tanzania</lugar>
-                <direccion>Calle 0</direccion>
-                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
+                <direccion>Playas de Zanzíbar</direccion>
+                <coordenadas latitud="39.2008333" longitud="-6.2708333" altitud="0"></coordenadas>
             </ubicacion>
-            <gestion>Agencia de viajes de Tanzania</gestion>
+            <gestion>Zanzíbar Beach Getaways</gestion>
             <descripcion>
-                <texto>"Esta ruta es genial"</texto>
+                <texto>
+                    Relájate en las hermosas playas de Zanzíbar y explora las aguas cristalinas del océano Índico. 
+                    Esta ruta te llevará a través de playas de arena blanca y aguas turquesas.
+                </texto>
                 <referencias>
-                    <referencia>Link 1</referencia>
-                    <referencia>Link 2</referencia>
-                    <referencia>Link 3</referencia>
+                    <referencia>"https://miviaje.com/mejores-playas-zanzibar/"</referencia>
+                    <referencia>"https://disfrutazanzibar.com/playas/"</referencia>
+                    <referencia>"https://www.nautaliaviajes.com/viajes/zanzibar/"</referencia>
                 </referencias>
-                <puntuacion>7</puntuacion>
+                <puntuacion>9</puntuacion>
                 <hitos>
-                    <hito nombre="Hito 1">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
+                    <hito nombre="Playa de Arena Blanca">
+                        <texto>
+                            Disfruta de una impresionante playa de arena blanca con aguas cristalinas en Zanzíbar.
+                        </texto>
+                        <coordenadas latitud="39.2474987" longitud="-6.2851948" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">5</distancia-anterior>
                         <galeria>
                             <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
+                                <foto>"multimedia/imagenes/zanzibar1.jpg"</foto>
+                                <foto>"multimedia/imagenes/zanzibar2.jpg"</foto>
                             </fotos>
                             <videos>
-                                <video>Video 1</video>
                             </videos>
                         </galeria>
                     </hito>
-                    <hito nombre="Hito 2">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
+                    <hito nombre="Natación con Delfines">
+                        <texto>
+                            Experimenta la emoción de nadar con delfines en las aguas de Zanzíbar.
+                        </texto>
+                        <coordenadas latitud="39.2617106" longitud="-6.2802841" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">10</distancia-anterior>
                         <galeria>
                             <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
+                                <foto>"multimedia/imagenes/delfines1.jpg"</foto>
+                                <foto>"multimedia/imagenes/delfines2.jpg"</foto>
                             </fotos>
                             <videos>
-                                <video>Video 1</video>
                             </videos>
                         </galeria>
                     </hito>
-                    <hito nombre="Hito 3">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
+                    <hito nombre="Exploración de Arrecifes de Coral">
+                        <texto>
+                            Sumérgete en las aguas tropicales de Zanzíbar y explora los arrecifes de coral en busca de vida marina colorida.
+                        </texto>
+                        <coordenadas latitud="39.1437803" longitud="-6.1742852" altitud="0"></coordenadas>
+                        <distancia-anterior unidades="km">20</distancia-anterior>
                         <galeria>
                             <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
+                                <foto>"multimedia/imagenes/arrecifes1.jpg"</foto>
+                                <foto>"multimedia/imagenes/arrecifes2.jpg"</foto>
                             </fotos>
                             <videos>
-                                <video>Video 1</video>
-                            </videos>
-                        </galeria>
-                    </hito>
-                </hitos>
-            </descripcion>
-        </informacion>
-    </ruta>
-    <ruta nombre="Ruta 3" adecuada-para="ir con niños" medio-transporte="a pie">
-        <tipo>"Arquitectura y monumentos"</tipo>
-        <informacion>
-            <horario fecha-inicio="12/12/2023" hora-inicio="9:00" duracion="120 minutos"></horario>
-            <ubicacion>
-                <lugar>Tanzania</lugar>
-                <direccion>Calle 0</direccion>
-                <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-            </ubicacion>
-            <gestion>Agencia de viajes de Tanzania</gestion>
-            <descripcion>
-                <texto>"Esta ruta es genial"</texto>
-                <referencias>
-                    <referencia>Link 1</referencia>
-                    <referencia>Link 2</referencia>
-                    <referencia>Link 3</referencia>
-                </referencias>
-                <puntuacion>7</puntuacion>
-                <hitos>
-                    <hito nombre="Hito 1">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
-                        <galeria>
-                            <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
-                            </fotos>
-                            <videos>
-                                <video>Video 1</video>
-                            </videos>
-                        </galeria>
-                    </hito>
-                    <hito nombre="Hito 2">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
-                        <galeria>
-                            <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
-                            </fotos>
-                            <videos>
-                                <video>Video 1</video>
-                            </videos>
-                        </galeria>
-                    </hito>
-                    <hito nombre="Hito 3">
-                        <texto>"Este hito es genial"</texto>
-                        <coordenadas longitud="0" latitud="0" altitud="0"></coordenadas>
-                        <distancia-anterior unidades="km">0</distancia-anterior>
-                        <galeria>
-                            <fotos>
-                                <foto>Foto 1</foto>
-                                <foto>Foto 2</foto>
-                            </fotos>
-                            <videos>
-                                <video>Video 1</video>
                             </videos>
                         </galeria>
                     </hito>

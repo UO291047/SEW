@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="8">
+        <Folder id="9">
+            <Style id="12">
+                <LineStyle id="13">
+                    <color>ff0000ff</color>
+                    <colorMode>normal</colorMode>
+                </LineStyle>
+            </Style>
+            <name>Reserva de Fauna del Serengeti</name>
+            <Placemark id="11">
+                <name>Ruta</name>
+                <styleUrl>#12</styleUrl>
+                <LineString id="10">
+                    <extrude>1</extrude>
+                    <tessellate>1</tessellate>
+                    <coordinates>34.8333333,-2.3333333,0.0 35.1363853,-2.6694986,0.0 34.9207008,-2.6640752,0.0 34.8898671,-2.3524246,0.0</coordinates>
+                </LineString>
+            </Placemark>
+        </Folder>
+    </Document>
+</kml>

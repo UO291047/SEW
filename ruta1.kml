@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <Folder id="2">
+            <Style id="5">
+                <LineStyle id="6">
+                    <color>ff0000ff</color>
+                    <colorMode>normal</colorMode>
+                </LineStyle>
+            </Style>
+            <name>Ascenso Kilimanjaro - Ruta Machame</name>
+            <Placemark id="4">
+                <name>Ruta</name>
+                <styleUrl>#5</styleUrl>
+                <LineString id="3">
+                    <extrude>1</extrude>
+                    <tessellate>1</tessellate>
+                    <coordinates>37.2179068,-3.165738,0.0 37.3246396,-3.07617,4444.8377248 37.3348306,-3.09712,4157.7920453 37.3541009,-3.0768127,5878.7311655</coordinates>
+                </LineString>
+            </Placemark>
+        </Folder>
+    </Document>
+</kml>

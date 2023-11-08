@@ -117,8 +117,8 @@
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
-					<xs:attribute name="longitud" type="xs:string" use="required" />
 					<xs:attribute name="latitud" type="xs:string" use="required" />
+					<xs:attribute name="longitud" type="xs:string" use="required" />
 					<xs:attribute name="altitud" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
