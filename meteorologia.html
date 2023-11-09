@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="js/pais.js"></script>
 
 </head>
 
@@ -33,6 +34,16 @@
     </header>
 
 <h2>Meteorología</h2>
+
+
+<script>
+    var pais = new Pais("Tanzania", "Dodoma", 65_500_000);
+    pais.rellenarAtributosSecundarios("Monarquía", [0,0], "Cristianismo");
+    document.write("<p>" + "País: " + pais.getNombrePais() + "</p>");
+    document.write("<p>" + "Capital: " + pais.getNombreCapital() + "</p>");
+    document.write(pais.getExtraInfo());
+    pais.printCoords();
+</script>
 
 </body>
 </html>
