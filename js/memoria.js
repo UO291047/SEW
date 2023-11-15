@@ -90,16 +90,17 @@ class Memoria {
 
     unflipCards(){
         this.lockBoard = true;
-    
-        const values = Object.values(this.elements);
-        
-        for (const card of values) {
-            card["data-state"] = "init";
-        }
 
         setTimeout(() => {
+            this.firtsCard["data-state"] = 'init';
+            this.firtsCard.classList.remove('flip');
+
+            this.secondCard["data-state"] = 'init';
+            this.secondCard.classList.remove('flip');
+    
             this.resetBoard();
         }, 2000);
+        
     }
 
     resetBoard(){
@@ -109,12 +110,10 @@ class Memoria {
         this.lockBoard = false;
     }
 
-    checkForMatch(){
-        if(this.firtsCard == this.secondCard){
-            this.disableCards();
-        }else{
-            this.unflipCards();
-        }
+    checkForMatch() {
+        const isMatch = this.firtsCard.dataset.element === this.secondCard.dataset.element;
+    
+        isMatch ? this.disableCards() : this.unflipCards();
     }
 
     disableCards(){
@@ -123,27 +122,40 @@ class Memoria {
         this.resetBoard();
     }
 
-    createElements(){
-        for (const card of this.shuffleElements){
-            document.write("<article data-element=" + card["data-state"] + ">" + 
-                        "<h3> Tarjeta de Memoria </h3>" +
-                        "<img src=" + card["source"] + " alt=" + card["element"] + ">"
-                    + "</article>");
+    createElements() {
+        const container = document.querySelector(".flex-container");
+        for (const card of this.shuffleElements) {
+            const article = document.createElement("article");
+            article.dataset.element = card["element"];
+            article.innerHTML = "<h3> Tarjeta de Memoria </h3>" +
+                "<img src=" + card["source"] + " alt=" + card["element"] + ">";
+            container.appendChild(article);
+        }
+    }
+    
+
+    flipCard(card) {
+        if (this.lockBoard || card.classList.contains('revealed')) {
+            return;
+        }
+    
+        card.classList.add('flip');
+    
+        if (!this.hasFlippedCard) {
+            // Primera carta volteada
+            this.hasFlippedCard = true;
+            this.firtsCard = card;
+        } else {
+            // Segunda carta volteada
+            this.secondCard = card;
+            this.checkForMatch();
         }
     }
 
-    flipCard(game){
-        //this["data-state"] = "flip";
-        this.classList.add('flip');
-  
-        setTimeout(() => {
-            this.classList.remove('flip');
-        }, 2500);
-    }
-
     addEventListeners(){
-        for(const card of document.querySelectorAll("article")){
-            this.flipCard.bind(card, this);
+        const cards = document.querySelectorAll("article");
+        for (const card of cards) {
+            card.addEventListener("click", () => this.flipCard(card));
         }
     }
 

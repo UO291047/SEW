@@ -17,12 +17,16 @@ article {
     transform: scale(1);
     cursor: pointer;
     transform-style: preserve-3d;
-    transition: transform .5s;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    transition: transform 0.5s;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 article.flip {
     transform: rotateY(180deg);
+}
+
+article.init {
+    transform: rotateY(0deg);
 }
 
 article h3,
