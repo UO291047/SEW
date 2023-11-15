@@ -1,6 +1,6 @@
 /*David Gonzalez Gonzalez UO291047*/ 
 
-/*Especificidad: 10*/
+/*Especificidad: 010*/
 .flex-container {
     display: flex;
     flex-flow: row wrap;
@@ -8,6 +8,8 @@
     padding: 0;
     margin: auto;
     list-style: none;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 article {
