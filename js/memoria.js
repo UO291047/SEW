@@ -70,17 +70,36 @@ class Memoria {
         this.lockBoard = false;
         this.firtsCard = null;
         this.secondCard = null;
+
+        this.shuffleElements = this.shuffleElements.bind(this);
+        this.unflipCards = this.unflipCards.bind(this);
+        this.resetBoard = this.resetBoard.bind(this);
+        this.checkForMatch = this.checkForMatch.bind(this);
+        this.disableCards = this.disableCards.bind(this);
+
+        this.shuffleElements();
+        this.createElements();
+        this.addEventListeners();
     }
 
     shuffleElements(){
-        suffle(this.elements);
+        const values = Object.values(this.elements);
+        values.sort(() => Math.random() - 0.5);
+        this.shuffleElements = values;
     }
 
     unflipCards(){
         this.lockBoard = true;
-        setTimeout(this.elements.forEach(card => {
-            card["state"] = init;
-        }), 2000);
+    
+        const values = Object.values(this.elements);
+        
+        for (const card of values) {
+            card["data-state"] = "init";
+        }
+
+        setTimeout(() => {
+            this.resetBoard();
+        }, 2000);
     }
 
     resetBoard(){
@@ -94,7 +113,7 @@ class Memoria {
         if(this.firtsCard == this.secondCard){
             this.disableCards();
         }else{
-            this.resetBoard();
+            this.unflipCards();
         }
     }
 
@@ -105,15 +124,28 @@ class Memoria {
     }
 
     createElements(){
-        this.elements.forEach(
-            card => {
-                document.write("<article class=flex-item data-element=" + card["data-state"] + ">" + 
-                        "<h2> Tarjeta de Memoria </h2>" +
-                        "<img src=" + card["source"] + "alt=" + card["element"] + ">"
+        for (const card of this.shuffleElements){
+            document.write("<article data-element=" + card["data-state"] + ">" + 
+                        "<h3> Tarjeta de Memoria </h3>" +
+                        "<img src=" + card["source"] + " alt=" + card["element"] + ">"
                     + "</article>");
-            }
-        );
-        
+        }
+    }
+
+    flipCard(game){
+        //this["data-state"] = "flip";
+        this.classList.add('flip');
+  
+        setTimeout(() => {
+            this.classList.remove('flip');
+        }, 2500);
+    }
+
+    addEventListeners(){
+        for(const card of document.querySelectorAll("article")){
+            this.flipCard.bind(card, this);
+        }
     }
 
 }
+
