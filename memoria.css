@@ -8,14 +8,15 @@
     padding: 0;
     margin: auto;
     list-style: none;
-    margin-left: 2000px;
-    margin-right: 2000px;
+    max-width: 75%;
 }
 
 article {
-    width: 190px;
+    width: calc(25% - 10px);
     height: 250px;
-    margin: 5px;
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
     transform: scale(1);
     cursor: pointer;
     transform-style: preserve-3d;
