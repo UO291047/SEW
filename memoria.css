@@ -13,9 +13,9 @@
 }
 
 article {
-    width: 25%;
+    width: calc(25% - 5px);
     height: 250px;
-    margin: auto;
+    margin: 5px;
     font-weight: bold;
     text-align: center;
     transform: scale(1);
@@ -23,6 +23,7 @@ article {
     transform-style: preserve-3d;
     transition: transform 0.5s;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 article.flip {
@@ -41,6 +42,7 @@ article img {
     border-radius: 5px;
     background: #1C7CCC;
     backface-visibility: hidden;
+    position: absolute;
 }
 
 article h3 {
@@ -51,4 +53,5 @@ article h3 {
 
 article img {
     transform: rotateY(180deg);
+    display: block;
 }
