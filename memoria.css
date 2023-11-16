@@ -8,20 +8,19 @@
     padding: 0;
     margin: auto;
     list-style: none;
-    max-width: 75%;
+    max-width: 100%;
 }
 
-article {
-    width: calc(25% - 10px);
+article { 
+    width: calc(25% - 5px);
     height: 250px;
-    margin: 10px;
+    margin: 5px;
     font-weight: bold;
     text-align: center;
     transform: scale(1);
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 article.flip {
@@ -37,8 +36,6 @@ article img {
     margin: 0;
     width: 100%;
     height: 100%;
-    position: absolute;
-    border-radius: 5px;
     background: #1C7CCC;
     backface-visibility: hidden;
 }

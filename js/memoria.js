@@ -99,7 +99,7 @@ class Memoria {
             this.secondCard.classList.remove('flip');
     
             this.resetBoard();
-        }, 2000);
+        }, 1000);
         
     }
 
@@ -118,7 +118,9 @@ class Memoria {
 
     disableCards(){
         this.firtsCard["data-state"] = "revealed";
+        this.firtsCard.classList.add("revealed");
         this.secondCard["data-state"] = "revealed";
+        this.secondCard.classList.add("revealed");
         this.resetBoard();
     }
 
