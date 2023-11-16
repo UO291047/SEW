@@ -4,6 +4,7 @@
 .flex-container {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
     justify-content: space-around;
     padding: 0;
     margin: auto;
@@ -11,16 +12,17 @@
     max-width: 100%;
 }
 
-article { 
-    width: calc(25% - 5px);
+article {
+    width: 25%;
     height: 250px;
-    margin: 5px;
+    margin: auto;
     font-weight: bold;
     text-align: center;
     transform: scale(1);
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 article.flip {
@@ -36,6 +38,7 @@ article img {
     margin: 0;
     width: 100%;
     height: 100%;
+    border-radius: 5px;
     background: #1C7CCC;
     backface-visibility: hidden;
 }
@@ -43,7 +46,6 @@ article img {
 article h3 {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
 }
 
