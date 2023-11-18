@@ -26,11 +26,12 @@ article {
     position: relative;
 }
 
-article.flip {
+article[data-state = "flip"], 
+article[data-state = "revealed"] {
     transform: rotateY(180deg);
 }
 
-article.init {
+article[data-state = "init"] {
     transform: rotateY(0deg);
 }
 

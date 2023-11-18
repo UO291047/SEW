@@ -93,10 +93,10 @@ class Memoria {
 
         setTimeout(() => {
             this.firtsCard["data-state"] = 'init';
-            this.firtsCard.classList.remove('flip');
+            this.firtsCard.dataset.state = this.firtsCard["data-state"];
 
             this.secondCard["data-state"] = 'init';
-            this.secondCard.classList.remove('flip');
+            this.secondCard.dataset.state = this.secondCard["data-state"];
     
             this.resetBoard();
         }, 1000);
@@ -118,9 +118,9 @@ class Memoria {
 
     disableCards(){
         this.firtsCard["data-state"] = "revealed";
-        this.firtsCard.classList.add("revealed");
+        this.firtsCard.dataset.state = this.firtsCard["data-state"];
         this.secondCard["data-state"] = "revealed";
-        this.secondCard.classList.add("revealed");
+        this.secondCard.dataset.state = this.secondCard["data-state"];
         this.resetBoard();
     }
 
@@ -129,6 +129,7 @@ class Memoria {
         for (const card of this.shuffleElements) {
             const article = document.createElement("article");
             article.dataset.element = card["element"];
+            article.dataset.state = card["data-state"];
             article.innerHTML = "<h3> Tarjeta de Memoria </h3>" +
                 "<img src=" + card["source"] + " alt=" + card["element"] + ">";
             container.appendChild(article);
@@ -137,11 +138,12 @@ class Memoria {
     
 
     flipCard(card) {
-        if (this.lockBoard || card.classList.contains('revealed')) {
+        if (this.lockBoard || card.getAttribute("data-state") === "revealed") {
             return;
         }
     
-        card.classList.add('flip');
+        card["data-state"] = 'flip';
+        card.dataset.state = card["data-state"];
     
         if (!this.hasFlippedCard) {
             // Primera carta volteada
