@@ -20,3 +20,19 @@ p {
     text-align: center;
     border: 1px solid gray;
 }
+
+/* Estilo para las celdas en el borde derecho de cada bloque 3x3 */
+p:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+/* Estilos para las celdas en el borde inferior de cada bloque 3x3 */
+p[data-row="2"],
+p[data-row="5"],
+p[data-row="8"]{
+    border-bottom: 2px solid #333;
+}
+
+p[data-state="blocked"] {
+    background-color: #d6d8c0;
+}

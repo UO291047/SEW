@@ -81,11 +81,24 @@ class Sudoku{
     
             // Llama al método introduceNumber con el número obtenido
             this.introduceNumber(number);
+        }else if (keyCode === 8) {
+            // Si la tecla pulsada es Backspace, llama al método introduceNumber con el valor 0
+            this.introduceNumber(0);
         }
     }
 
     introduceNumber(number) {
+
         const { row, column } = this.selectedCell;
+
+        const selectedCellElement = document.querySelector(`[data-row='${row}'][data-column='${column}']`);
+
+        if(number === 0){
+            this.tablero[row][column] = number;
+            selectedCellElement.dataset.state = 'clicked';
+            selectedCellElement.textContent = "";
+            return;
+        }
 
         // Comprobar si el número es válido en la fila
         const isNumberValidInRow = !this.tablero[row].includes(number);
@@ -100,17 +113,15 @@ class Sudoku{
 
         // Si el número es válido, realizar acciones necesarias
         if (isNumberValidInRow && isNumberValidInColumn && isNumberValidInSubgrid) {
-            // Obtener el elemento del DOM correspondiente
-            const selectedCellElement = document.querySelector(`[data-row='${row}'][data-column='${column}']`);
 
-            // Modificar el valor del atributo data-state a correct
+            this.tablero[row][column] = number;
             selectedCellElement.dataset.state = 'correct';
-            // También puedes modificar el contenido del párrafo para mostrar el número
             selectedCellElement.textContent = number;
 
             // Comprobar si ya están rellenas todas las cuadrículas del sudoku
             if (this.isSudokuCompleted()) {
                 alert('¡Sudoku completado!');
+                return;
             }
         } else {
             alert('Número no válido para la casilla seleccionada.');
