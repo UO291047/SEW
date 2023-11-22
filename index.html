@@ -17,6 +17,7 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
         crossorigin="anonymous"></script>
     <script src="js/fondo.js"></script>
+    <script src="js/pais.js"></script>
 
 </head>
 
@@ -41,7 +42,10 @@
 <section>
     
     <script>
-        const memoria = new Memoria();
+        const pais = new Pais("Tanzania", "Dodoma", 65_500_000);
+        pais.rellenarAtributosSecundarios("Partitocracia", [-6.17221,35.73947], "Cristianismo");
+        const fondo = new Fondo(pais.getNombrePais(), pais.getNombreCapital(), pais.getCoords());
+        fondo.setFondo();
     </script>
 
 </section>

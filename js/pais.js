@@ -33,6 +33,10 @@ class Pais {
         return this.religion;
     }
 
+    getCoords(){
+        return this.coords_capital;
+    }
+
     getExtraInfo(){
         return "<ul>" +
                     "<li>" + "Población: " + this.poblacion + "</li>" +
