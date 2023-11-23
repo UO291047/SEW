@@ -23,6 +23,7 @@ class Agenda{
                     stringDatos += "<li>Hora: " + $('Time',item).text() + "</li>";
 
                     $("pre").html(stringDatos);
+                    this.crearElemento("pre","","footer");
                 });
                 
             },

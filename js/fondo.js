@@ -15,7 +15,8 @@ class Fondo{
                 })
             .done(function(data) {
                     $.each(data.items, function(i, item) {
-                        $("body").css("background-image", item);
+                        var media = item.media.m;
+                        $("body").css("background-image", media.replace("-n.jpg", "-b.jpg"));
                         return false;
                     });
         });
