@@ -1,7 +1,7 @@
 class Agenda{
 
     constructor(){
-        this.url = "http://ergast.com/api/f1/current";
+        this.url = "https://ergast.com/api/f1/current";
         this.last_api_call = null;
         this.las_api_result = null;
     }
@@ -15,7 +15,7 @@ class Agenda{
                 //$("h5").text((new XMLSerializer()).serializeToString(datos));
                 
                 //Presentación de los datos contenidos en XML
-                $.each($('Race',datos), function(item){
+                $('Race',datos).each(function(item){
                     var stringDatos = "<ul><li>Carrera: " + $('RaceName',item).text() + "</li>";
                     stringDatos += "<li>Circuito: " + $('CircuitName',item).text() + "</li>";
                     stringDatos += "<li>Coordenadas: [" + $('Location',item).attr('lat') + "," + $('Location',datos).attr('long') + "]</li>";
@@ -48,7 +48,8 @@ class Agenda{
         //Muestra el archivo XML recibido   
         this.crearElemento("h4", "Datos", "footer")  
         //this.crearElemento("h5", "", "h4") 
-        this.crearElemento("pre","","footer"); // Crea un elemento con DOM para el string con JSON
+        this.crearElemento("pre","","footer");
+        this.crearElemento("pre","","footer");
         this.cargarDatos();
         $("button").attr("disabled","disabled");
     }

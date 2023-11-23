@@ -14,9 +14,9 @@ class Fondo{
                     format: "json"
                 })
             .done(function(data) {
-                    $.each(data.items, function(item) {
+                    $.each(data.items, function(i, item) {
                         $("body").css("background-image", item);
-                        return;
+                        return false;
                     });
         });
     }
