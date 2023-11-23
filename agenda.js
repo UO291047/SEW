@@ -1,7 +1,7 @@
 class Agenda{
 
     constructor(){
-        this.url = "https://ergast.com/api/f1/current";
+        this.url = "https://ergast.com/api/f1/current"; //La url debe ser siempre https
         this.last_api_call = null;
         this.las_api_result = null;
     }
