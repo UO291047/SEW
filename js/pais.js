@@ -56,20 +56,21 @@ class Pais {
             method: 'GET',
             success: function(datos){
                 
-                    //Presentación de los datos contenidos en JSON
-                    
-                    var stringDatos = "<ul><li>Ciudad: " + datos.city.name + "</li>";
-                        stringDatos += "<li>Temperatura máxima: " + datos.list[0].main.temp_max + " grados Celsius</li>";
-                        stringDatos += "<li>Temperatura mínima: " + datos.list[0].main.temp_min + " grados Celsius</li>";
-                        stringDatos += "<li>Humedad: " + datos.list[0].main.humidity + " %</li>";
-                        stringDatos += "<li> <img src=https://openweathermap.org/img/wn/" + datos.list[0].weather[0].icon + "@2x.png> </li>";
-                    
-                    $("pre").html(stringDatos);
-                },
+                //Presentación de los datos contenidos en JSON
+                
+                var stringDatos = "<li> <img src=https://openweathermap.org/img/wn/" + datos.list[0].weather[0].icon + "@2x.png> </li>";
+                    stringDatos += "<li>Temperatura máxima: " + datos.list[0].main.temp_max + " grados Celsius</li>";
+                    stringDatos += "<li>Temperatura mínima: " + datos.list[0].main.temp_min + " grados Celsius</li>";
+                    stringDatos += "<li>Humedad: " + datos.list[0].main.humidity + " %</li>";
+                    stringDatos += "<li>Lluvia: " + datos.list[0].rain['3h'] + " milímetros </li>";
+                
+                $("pre").append(stringDatos);
+
+            },
             error:function(){
                 $("h4").remove();
                 $("pre").remove();
-                }
+            }
         });
     }
 

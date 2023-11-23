@@ -15,20 +15,20 @@ class Agenda{
                 //$("h5").text((new XMLSerializer()).serializeToString(datos));
                 
                 //Presentación de los datos contenidos en XML
-                $('Race',datos).each(function(item){
-                    var stringDatos = "<ul><li>Carrera: " + $('RaceName',item).text() + "</li>";
+                $('Race',datos).each(function(i, item){
+                    var stringDatos = "<h4>Carrera " + i + " </h4>"
+                    stringDatos += "<ul><li>Carrera: " + $('RaceName',item).text() + "</li>";
                     stringDatos += "<li>Circuito: " + $('CircuitName',item).text() + "</li>";
                     stringDatos += "<li>Coordenadas: [" + $('Location',item).attr('lat') + "," + $('Location',datos).attr('long') + "]</li>";
-                    stringDatos += "<li>Fecha: " + $('Date',item).text() + "</li>";
-                    stringDatos += "<li>Hora: " + $('Time',item).text() + "</li>";
+                    stringDatos += "<li>Fecha: " + $('Date:first',item).text() + "</li>";
+                    stringDatos += "<li>Hora: " + $('Time:first',item).text() + "</li>";
 
-                    $("pre").html(stringDatos);
-                    this.crearElemento("pre","","footer");
+                    $("pre").append(stringDatos);
                 });
                 
             },
             error:function(){
-                $("h4").remove();
+                $("h3").remove();
                 //$("h5").remove();
                 $("pre").remove();
                 }
@@ -47,9 +47,8 @@ class Agenda{
     verXML(){
 
         //Muestra el archivo XML recibido   
-        this.crearElemento("h4", "Datos", "footer")  
+        this.crearElemento("h3", "Datos", "footer")  
         //this.crearElemento("h5", "", "h4") 
-        this.crearElemento("pre","","footer");
         this.crearElemento("pre","","footer");
         this.cargarDatos();
         $("button").attr("disabled","disabled");

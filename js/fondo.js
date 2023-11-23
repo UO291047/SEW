@@ -9,15 +9,20 @@ class Fondo{
         var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
         $.getJSON(flickrAPI, 
                 {
-                    tags: this.nombre_capital,
+                    tags: this.nombre_pais + " " + this.nombre_capital,
                     tagmode: "any",
                     format: "json"
                 })
             .done(function(data) {
                     $.each(data.items, function(i, item) {
                         var media = item.media.m;
-                        $("body").css("background-image", media.replace("-n.jpg", "-b.jpg"));
-                        return false;
+                        $("body").css({
+                            "background-image": "url(" + media.replace("-n.jpg", "-b.jpg") + ")",
+                            "background-repeat": "no-repeat",
+                            "background-size": "cover"
+                        });
+                        if(i==0)
+                            return false;
                     });
         });
     }
