@@ -13,6 +13,10 @@
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+    <script src="js/agenda.js"></script>
 
 </head>
 
@@ -33,6 +37,14 @@
     </header>
 
 <h2>Agenda</h2>
+
+<script>
+    const agenda = new Agenda();
+</script>
+
+<footer>
+    <button onclick="agenda.verXML()">Obtener datos F1</button>
+</footer>
 
 </body>
 </html>

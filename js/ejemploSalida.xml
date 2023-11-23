@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/schemas/mrd-1.5.xsl"?>
+<MRData xmlns="http://ergast.com/mrd/1.5" series="f1" url="http://ergast.com/api/f1/current" limit="30" offset="0" total="22">
+    <RaceTable season="2023">
+        <Race season="2023" round="1" url="https://en.wikipedia.org/wiki/2023_Bahrain_Grand_Prix">
+            <RaceName>Bahrain Grand Prix</RaceName>
+            <Circuit circuitId="bahrain" url="http://en.wikipedia.org/wiki/Bahrain_International_Circuit">
+                <CircuitName>Bahrain International Circuit</CircuitName>
+                <Location lat="26.0325" long="50.5106">
+                    <Locality>Sakhir</Locality>
+                    <Country>Bahrain</Country>
+                </Location>
+            </Circuit>
+            <Date>2023-03-05</Date>
+            <Time>15:00:00Z</Time>
+            <FirstPractice>
+                <Date>2023-03-03</Date>
+                <Time>11:30:00Z</Time>
+            </FirstPractice>
+            <SecondPractice>
+                <Date>2023-03-03</Date>
+                <Time>15:00:00Z</Time>
+            </SecondPractice>
+            <ThirdPractice>
+                <Date>2023-03-04</Date>
+                <Time>11:30:00Z</Time>
+            </ThirdPractice>
+            <Qualifying>
+                <Date>2023-03-04</Date>
+                <Time>15:00:00Z</Time>
+            </Qualifying>
+        </Race>
+        <!-- ... (resto de las carreras) ... -->
+        <Race season="2023" round="22" url="https://en.wikipedia.org/wiki/2023_Abu_Dhabi_Grand_Prix">
+            <RaceName>Abu Dhabi Grand Prix</RaceName>
+            <Circuit circuitId="yas_marina" url="http://en.wikipedia.org/wiki/Yas_Marina_Circuit">
+                <CircuitName>Yas Marina Circuit</CircuitName>
+                <Location lat="24.4672" long="54.6031">
+                    <Locality>Abu Dhabi</Locality>
+                    <Country>UAE</Country>
+                </Location>
+            </Circuit>
+            <Date>2023-11-26</Date>
+            <Time>13:00:00Z</Time>
+            <FirstPractice>
+                <Date>2023-11-24</Date>
+                <Time>09:30:00Z</Time>
+            </FirstPractice>
+            <SecondPractice>
+                <Date>2023-11-24</Date>
+                <Time>13:00:00Z</Time>
+            </SecondPractice>
+            <ThirdPractice>
+                <Date>2023-11-25</Date>
+                <Time>10:30:00Z</Time>
+            </ThirdPractice>
+            <Qualifying>
+                <Date>2023-11-25</Date>
+                <Time>14:00:00Z</Time>
+            </Qualifying>
+        </Race>
+    </RaceTable>
+</MRData>

@@ -62,12 +62,11 @@ class Pais {
                         stringDatos += "<li>Temperatura máxima: " + datos.list[0].main.temp_max + " grados Celsius</li>";
                         stringDatos += "<li>Temperatura mínima: " + datos.list[0].main.temp_min + " grados Celsius</li>";
                         stringDatos += "<li>Humedad: " + datos.list[0].main.humidity + " %</li>";
-                        stringDatos += "<li> <img src=https://openweathermap.org/img/wn/" + datos.list[0].weather[0].icon + "@2x.png/> </li>";
+                        stringDatos += "<li> <img src=https://openweathermap.org/img/wn/" + datos.list[0].weather[0].icon + "@2x.png> </li>";
                     
                     $("pre").html(stringDatos);
                 },
             error:function(){
-                $("h3").html("¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>"); 
                 $("h4").remove();
                 $("pre").remove();
                 }
@@ -91,8 +90,9 @@ class Pais {
         //https://api.openweathermap.org/data/2.5/forecast?lat=-6.17221&lon=35.73947&appid=dff06432f9d5b3e7c70f9a5f75d2615d&units=metric&lang=es
         this.correcto = "¡Todo correcto! JSON recibido de <a href='http://openweathermap.org'>OpenWeatherMap</a>";
 
-        //Muestra el archivo JSON recibido     
-        this.crearElemento("pre","Datos","p"); // Crea un elemento con DOM para el string con JSON
+        //Muestra el archivo JSON recibido   
+        this.crearElemento("h4", "Datos", "footer")  
+        this.crearElemento("pre","","footer"); // Crea un elemento con DOM para el string con JSON
         this.cargarDatos();
     }
 
