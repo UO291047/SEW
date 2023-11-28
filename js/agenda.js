@@ -4,6 +4,7 @@ class Agenda{
         this.url = "https://ergast.com/api/f1/current";
         this.last_api_call = null;
         this.las_api_result = null;
+        this.delayBetweenCalls = 10 * 60 * 1000; // 10 minutos en milisegundos
     }
 
     cargarDatos(){
@@ -50,7 +51,14 @@ class Agenda{
         this.crearElemento("h3", "Datos", "footer")  
         //this.crearElemento("h5", "", "h4") 
         this.crearElemento("pre","","footer");
-        this.cargarDatos();
+        const now = new Date().getTime();
+        if (this.last_api_call == null || now - this.last_api_call >= this.delayBetweenCalls){
+            this.cargarDatos();
+            this.las_api_result = $("pre").html();
+            this.last_api_call = now;
+        }else{
+            $("pre").html() = this.las_api_result;
+        }
         $("button").attr("disabled","disabled");
     }
 

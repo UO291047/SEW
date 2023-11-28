@@ -8,8 +8,17 @@ class Crucigrama{
     tablero;
 
     constructor(){
-        this.tablero = [this.rows][this.columns];
-        
+         this.initTablero();
+    }
+
+    initTablero(){
+        this.tablero = [];
+
+        for (var i = 0; i < rows; i++) {
+            this.tablero[i] = [];
+            for (var j = 0; j < columns; j++) 
+                this.tablero[i][j] = 0;
+        }
     }
 
     start() {
@@ -23,8 +32,10 @@ class Crucigrama{
                     if(value.equals(".")){
                         value = 0;
                     }
-                    else{
+                    else if(value.equals("#")){
                         value = -1;
+                    }else{
+                        value = this.board.substring(inicio, fin)[c];
                     }
                 }
                 fila.push(value);
