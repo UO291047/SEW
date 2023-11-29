@@ -8,37 +8,63 @@ class Crucigrama{
     tablero;
 
     constructor(){
-         this.initTablero();
+        this.tablero = [];
+        this.start();
     }
 
-    initTablero(){
-        this.tablero = [];
+    paintMathword(){
+        this.createStructure();
+        this.init_time = Date.now();
+    }
 
-        for (var i = 0; i < rows; i++) {
-            this.tablero[i] = [];
-            for (var j = 0; j < columns; j++) 
-                this.tablero[i][j] = 0;
+    createStructure(){
+        const mainElement = document.querySelector("main.crucigrama-container");
+
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.columns; j++) {
+                const cell = document.createElement("p");
+                if(this.tablero[i][j] === 0){
+                    cell.dataset.state = "init";
+                    cell.textContent = "";
+                    cell.addEventListener("click", () => this.handleCellClick(cell));
+                }else if(this.tablero[i][j] === -1){
+                    cell.dataset.state = "empty";
+                    cell.textContent = "";
+                }else{
+                    cell.dataset.state = "blocked";
+                    cell.textContent = this.tablero[i][j];
+                }
+                
+                cell.dataset.row = i;
+                cell.dataset.column = j;
+
+                mainElement.appendChild(cell);
+            }
         }
     }
 
     start() {
+        const values = this.board.split(",");
+        var i = 0;
+
         for (var r = 0; r < this.rows; r++) {
             var inicio = r * this.columns;
             var fin = inicio + this.columns;
             var fila = [];
             for (var c = 0; c < this.columns; c++) {
-                var value = parseInt(this.board.substring(inicio, fin)[c]);
-                if (isNaN(value)) {
-                    if(value.equals(".")){
+                var value = values[i];
+                if (isNaN(parseInt(value))) {
+                    if(value === "."){
                         value = 0;
                     }
-                    else if(value.equals("#")){
+                    else if(value === "#"){
                         value = -1;
                     }else{
-                        value = this.board.substring(inicio, fin)[c];
+                        value = values[i];
                     }
                 }
                 fila.push(value);
+                i++;
             }
             this.tablero.push(fila);
         }

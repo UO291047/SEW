@@ -1,0 +1,30 @@
+
+main {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    gap: 0;
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    justify-items: center;
+    align-items: center;
+}
+
+p {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+p[data-state="blocked"] {
+    background-color: #d6d8c0;
+}
+
+p[data-state="empty"] {
+    background-color: Black;
+}
