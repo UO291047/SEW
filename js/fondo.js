@@ -17,7 +17,7 @@ class Fondo{
                     $.each(data.items, function(i, item) {
                         var media = item.media.m;
                         $("body").css({
-                            "background-image": "url(" + media.replace("-n.jpg", "-b.jpg") + ")",
+                            "background-image": "url(" + media.replace("_m", "_b") + ")",
                             "background-repeat": "no-repeat",
                             "background-size": "cover"
                         });

@@ -142,8 +142,8 @@ class Crucigrama{
             return;
         }
 
-        expression_row = this.validRow(selectedCellElement);
-        expression_col = this.validCol(selectedCellElement);
+        expression_row = this.validRow(this.selectedCell);
+        expression_col = this.validCol(this.selectedCell);
 
         // Si el número es válido, realizar acciones necesarias
         if (expression_row && expression_col) {
@@ -166,64 +166,64 @@ class Crucigrama{
     }
 
     validRow(cell){
-        var {row, col} = cell;
+        var {row, column} = cell;
 
-        if(row + 1 >= this.rows || this.tablero[row+1][col] == -1){
+        if(column + 1 >= this.columns || this.tablero[row][column+1] == -1){
+            return true;
+        }
+
+        for(var i=1; i<this.columns; i++){
+            if(this.tablero[row][column+i] === "="){
+                column = column + i;
+                break;
+            }
+        }
+
+        var first_number = this.tablero[row][column - 3];
+        var second_number = this.tablero[row][column - 1];
+        var expression = this.tablero[row][column - 2];
+        var result = this.tablero[row][column + 1];
+
+        if(first_number != 0 && second_number != 0 && expression != 0 && result != 0){
+            var expr = [first_number, expression, second_number].join("");
+            var res = eval(expr);
+            if(res != result){
+                return false;
+            }
+        }
+
+        return true;
+ 
+    }
+
+    validCol(cell){
+        var {row, column} = cell;
+
+        if(row + 1 >= this.rows || this.tablero[row+1][column] == -1){
             return true;
         }
 
         for(var i=1; i<this.rows; i++){
-            if(this.tablero[row+i][col] === "="){
+            if(this.tablero[row+i][column] === "="){
                 row = row + i;
                 break;
             }
         }
 
-        var first_number = this.tablero[row - 3][col];
-        var second_number = this.tablero[row - 1][col];
-        var expression = this.tablero[row - 2][col];
-        var result = this.tablero[row + 1][col];
+        var first_number = this.tablero[row - 3][column];
+        var second_number = this.tablero[row - 1][column];
+        var expression = this.tablero[row - 2][column];
+        var result = this.tablero[row + 1][column];
 
         if(first_number != 0 && second_number != 0 && expression != 0 && result != 0){
-            var expr = [first_number, expression, second_number].join();
+            var expr = [first_number, expression, second_number].join("");
             var res = eval(expr);
-            if(res == result){
-                return true;
+            if(res != result){
+                return false;
             }
         }
 
-        return false;
- 
-    }
-
-    validCol(cell){
-        var {row, col} = cell;
-
-        if(col + 1 >= this.columns || this.tablero[row][col+1] == -1){
-            return true;
-        }
-
-        for(var i=1; i<this.columns; i++){
-            if(this.tablero[row][col+i] === "="){
-                col = col + i;
-                break;
-            }
-        }
-
-        var first_number = this.tablero[row][col - 3];
-        var second_number = this.tablero[row][col - 1];
-        var expression = this.tablero[row][col - 2];
-        var result = this.tablero[row][col + 1];
-
-        if(first_number != 0 && second_number != 0 && expression != 0 && result != 0){
-            var expr = [first_number, expression, second_number].join();
-            var res = eval(expr);
-            if(res == result){
-                return true;
-            }
-        }
-
-        return false;
+        return true;
  
     }
 
@@ -241,8 +241,8 @@ class Crucigrama{
     calculate_date_difference(){
         const diff = (this.end_time - this.init_time) * 1000;
         var horas, minutos, segundos = 0;
-        horas = Math.trunc(diff/(60*60));
-        minutos = Math.trunc((diff/60) - horas*60);
+        horas = (diff/(60*60)) > 0 ? 0 : Math.trunc(diff/(60*60));
+        minutos = ((diff/60) - horas*60) > 0 ? 0 : Math.trunc((diff/60) - horas*60);
         segundos = diff%60;
 
         return horas + ":" + minutos + ":" + segundos;
