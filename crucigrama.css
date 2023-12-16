@@ -28,3 +28,26 @@ p[data-state="blocked"] {
 p[data-state="empty"] {
     background-color: Black;
 }
+
+/* Estilos para una mediaquery
+que muestre la botonera en tablet y móvil */
+section[data-type=botonera] {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+section[data-type=botonera] h4 {
+    width: 100%;
+    text-align: center;
+}
+
+section[data-type=botonera] button {
+    width: calc(15% - 1em);
+    height: 4em;
+    text-align: center;
+    background-color: #000;
+    color: #FFF;
+}

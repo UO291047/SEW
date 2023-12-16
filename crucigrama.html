@@ -47,15 +47,45 @@
 
 <h2> Crucigrama Matemático </h2>
 
+<script>       
+    const crucigrama = new Crucigrama();
+</script>
+
+<section>
+    <h3> Nivel </h3>
+    <button onclick="crucigrama.init('facil')">Fácil</button>
+    <button onclick="crucigrama.init('medio')">Medio</button>
+    <button onclick="crucigrama.init('dificil')">Difícil</button>
+    <pre>
+
+    </pre>
+</section>
+
 <main class="crucigrama-container">
 
 </main>
 
-</body>
+<section data-type="botonera">
+    <h4> Botonera </h4>
+    <button onclick="crucigrama.introduceElement(1)">1</button>
+    <button onclick="crucigrama.introduceElement(2)">2</button>
+    <button onclick="crucigrama.introduceElement(3)">3</button>
+    <button onclick="crucigrama.introduceElement(4)">4</button>
+    <button onclick="crucigrama.introduceElement(5)">5</button>
+    <button onclick="crucigrama.introduceElement(6)">6</button>
+    <button onclick="crucigrama.introduceElement(7)">7</button>
+    <button onclick="crucigrama.introduceElement(8)">8</button>
+    <button onclick="crucigrama.introduceElement(9)">9</button>
+    <button onclick="crucigrama.introduceElement('*')">*</button>
+    <button onclick="crucigrama.introduceElement('+')">+</button>
+    <button onclick="crucigrama.introduceElement('-')">-</button>
+    <button onclick="crucigrama.introduceElement('/')">/</button>
+</section>
 
-<script>       
-    const crucigrama = new Crucigrama();
-    crucigrama.paintMathword();
+<script>
+    crucigrama.init("facil");
 </script>
+
+</body>
 
 </html>

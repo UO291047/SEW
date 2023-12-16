@@ -3,13 +3,28 @@ class Crucigrama{
     rows = 11;
     columns = 9;
     board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+    board_facil = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+    board_medio = "12,*,.,=,36,#,#,#,15,#,#,*,#,/,#,#,#,*,.,-,.,=,.,#,55,#,.,*,#,=,#,=,#,/,#,=,.,#,15,#,9,*,.,=,45,=,#,#,#,#,#,=,#,#,72,#,20,-,.,=,11,#,.,#,#,-,#,+,#,#,#,*,56,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,12,#,16,*,.,=,32"
+    board_dificil = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72"
     init_time;
     end_time;
     tablero;
 
     constructor(){
+        document.addEventListener('keydown', this.handleKeyDown.bind(this));
+    }
+
+    init(diff){
+        if(diff === "facil"){
+            this.board = this.board_facil;
+        }else if(diff === "medio"){
+            this.board = this.board_medio;
+        }else{
+            this.board = this.board_dificil;
+        }
         this.tablero = [];
         this.start();
+        this.paintMathword();
     }
 
     paintMathword(){
@@ -19,7 +34,11 @@ class Crucigrama{
 
     createStructure(){
         const mainElement = document.querySelector("main.crucigrama-container");
-
+        //Limpiamos el main por si ya tenía algo
+        while(mainElement.firstChild){
+            mainElement.removeChild(mainElement.firstChild);
+        }
+        
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 const cell = document.createElement("p");
@@ -69,7 +88,6 @@ class Crucigrama{
             this.tablero.push(fila);
         }
 
-        document.addEventListener('keydown', this.handleKeyDown.bind(this));
     }
 
     handleCellClick(cell) {
