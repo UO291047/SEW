@@ -52,7 +52,13 @@
 </section>
 
 <p>
+    Mostrar XML de rutas:
     <input type="file" onchange="viajes.readInputFile(this.files);">
+</p>
+
+<p>
+    Cargar ruta en formato Kml:
+    <input type="file" onchange="viajes.cargarArchivosKML(this.files);" accept=".kml" multiple>
 </p>
 
 <!-- Lleva id para poder poner el mapa dinamico -->
