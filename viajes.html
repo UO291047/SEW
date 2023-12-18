@@ -51,11 +51,14 @@
     <input type="button" value="Obtener mapa dinamico" onclick="viajes.getMapaDinamico();">
 </section>
 
+<p>
+    <input type="file" onchange="viajes.readInputFile(this.files);">
+</p>
+
 <!-- Lleva id para poder poner el mapa dinamico -->
 <main id="map">
     
 </main>
-
 
 </body>
 </html>

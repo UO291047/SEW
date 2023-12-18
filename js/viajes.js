@@ -69,4 +69,87 @@ class Viajes{
         });
     }
 
+    readInputFile(files){
+        var archivo = files[0];
+        var tipoTexto = /text.*/;
+        if (archivo.type.match(tipoTexto)) 
+        {
+            var lector = new FileReader();
+
+            lector.onload = function(event){
+                var viajes = new Viajes();
+                var resultXML = lector.result;
+                var resultHTML = viajes.procesarXML(resultXML);
+                const mainElement = document.querySelector("main");
+                mainElement.innerHTML = resultHTML;
+            }
+
+            lector.readAsText(archivo);
+
+        }
+        else {
+            alert("Error : ¡¡¡ Archivo no válido !!!");
+        }
+    }
+
+    procesarXML(xmlContent) {
+        var htmlOutput = '<h2>Información de rutas</h2>';
+        
+        // Parsear el contenido XML
+        var xmlDoc = $.parseXML(xmlContent);
+        var $xml = $(xmlDoc);
+      
+        // Iterar sobre cada ruta en el XML
+        $xml.find('ruta').each(function() {
+          var nombreRuta = $(this).attr('nombre');
+          var tipoRuta = $(this).find('tipo').text();
+          var adecuadaPara = $(this).attr('adecuada-para');
+          var medioTransporte = $(this).attr('medio-transporte');
+      
+          // Mostrar información básica de la ruta
+          htmlOutput += '<article>';
+          htmlOutput += '<h3>' + nombreRuta + '</h3>';
+          htmlOutput += '<p><strong>Tipo:</strong> ' + tipoRuta + '</p>';
+          htmlOutput += '<p><strong>Adecuada para:</strong> ' + adecuadaPara + '</p>';
+          htmlOutput += '<p><strong>Medio de transporte:</strong> ' + medioTransporte + '</p>';
+      
+          // Mostrar información detallada de la ruta
+          htmlOutput += '<article>';
+          $(this).find('informacion').each(function() {
+            var horario = $(this).find('horario');
+            var lugar = $(this).find('ubicacion > lugar').text();
+            var gestion = $(this).find('gestion').text();
+            var descripcion = $(this).find('descripcion > texto').text();
+      
+            htmlOutput += '<p><strong>Horario:</strong> ' + horario.attr('fecha-inicio') + ' ' + horario.attr('hora-inicio') + ' (' + horario.attr('duracion') + ')</p>';
+            htmlOutput += '<p><strong>Lugar:</strong> ' + lugar + '</p>';
+            htmlOutput += '<p><strong>Gestión:</strong> ' + gestion + '</p>';
+            htmlOutput += '<p><strong>Descripción:</strong> ' + descripcion + '</p>';
+      
+            // Mostrar información de los hitos
+            htmlOutput += '<h4>Hitos</h4>';
+            $(this).find('hitos > hito').each(function() {
+              var nombreHito = $(this).attr('nombre');
+              var textoHito = $(this).find('texto').text();
+              var coordenadasHito = $(this).find('coordenadas');
+              var galeriaHito = $(this).find('galeria');
+      
+              htmlOutput += '<article>';
+              htmlOutput += '<p><strong>Nombre del Hito:</strong> ' + nombreHito + '</p>';
+              htmlOutput += '<p><strong>Texto del Hito:</strong> ' + textoHito + '</p>';
+              htmlOutput += '<p><strong>Coordenadas del Hito:</strong> Latitud ' + coordenadasHito.attr('latitud') + ', Longitud ' + coordenadasHito.attr('longitud') + ', Altitud ' + coordenadasHito.attr('altitud') + '</p>';
+      
+              
+              htmlOutput += '</article>';
+            });
+          });
+          htmlOutput += '</article>';
+      
+          htmlOutput += '</article>';
+        });
+      
+        return htmlOutput;
+      }
+      
+
 }
