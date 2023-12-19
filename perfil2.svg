@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="tiny" height="300" version="1.2" width="600">
+  <defs/>
+  <text fill="black" font-size="15" transform="rotate(-90, 20, 250)" x="20" y="250">Reserva de Fauna del Serengeti</text>
+  <text fill="black" font-size="15" transform="rotate(-90, 35.0, 250)" x="35.0" y="250">Leones</text>
+  <text fill="black" font-size="15" transform="rotate(-90, 105.0, 250)" x="105.0" y="250">Manada de Elefantes</text>
+  <text fill="black" font-size="15" transform="rotate(-90, 161.0, 250)" x="161.0" y="250">La Gran Migración</text>
+  <polyline fill="none" points="35.0,10.0 105.0,15.55 161.0,25.4" stroke="rgb(100%,0%,0%)" stroke-width="3"/>
+</svg>

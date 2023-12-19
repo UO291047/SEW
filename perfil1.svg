@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="tiny" height="300" version="1.2" width="600">
+  <defs/>
+  <text fill="black" font-size="15" transform="rotate(-90, 20, 250)" x="20" y="250">Ascenso Kilimanjaro - Ruta Machame</text>
+  <text fill="black" font-size="15" transform="rotate(-90, 77.0, 250)" x="77.0" y="250">Lava Tower</text>
+  <text fill="black" font-size="15" transform="rotate(-90, 105.0, 250)" x="105.0" y="250">Barranco Wall</text>
+  <text fill="black" font-size="15" transform="rotate(-90, 182.0, 250)" x="182.0" y="250">Uhuru Peak</text>
+  <polyline fill="none" points="77.0,81.7 105.0,96.05 182.0,10.0" stroke="rgb(100%,0%,0%)" stroke-width="3"/>
+</svg>
