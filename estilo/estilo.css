@@ -17,21 +17,65 @@ Black
 /*Especificidad: 001*/
 body{
     font-family: "Century Gothic", "Trebuchet MS", sans-serif;
+    font-size: 1.1em;
     background-color: #EBECE0;
     color: #444444;
 }
 
-/*Especificidad: 001*/
-header{
-    background-color: #0A0A00;
+/*Especificidad: 001 , 001, 001, 001, 001, 001*/
+h1, h2, h3, h4, h5, h6{
+    font-family: "Arial Rounded MT Bold", "Arial Black", sans-serif;
+}
+
+/*Especificidad: 012*/
+h1 a:link{
+    text-decoration: none;
+}
+
+/*Especificidad 002*/
+body > p{
+    font-size: 0.8em;
+}
+
+/*Especificidad: 011*/
+a:link{
+    /*El color de fondo es heredado del elemento body*/
+    color:#991918;
+}
+
+/*Especificidad: 011*/
+a:visited{
+    /*El color de fondo es heredado del elemento body*/
+    color:#034F8E;
+}
+
+/*Especificidad 023*/
+main section:first-of-type p:last-of-type{
+    font-style: italic;
 }
 
 /*Especificidad: 001*/
-h1{
-    color: #EF3340;
+ol{
+    list-style-type: upper-roman;
 }
 
 /*Especificidad: 001*/
-nav{
-    color: #EF3340;
+ul{
+    list-style-type:circle;
+}
+
+/*Especificidad: 001, 001*/
+li, p{
+    line-height: 1.5em;
+}
+
+/*Especificidad 003*/
+ul dl dt{
+    font-weight: bold;
+}
+
+/*Especificidad 001, 001*/
+dd, dt {
+  line-height: 1em;
+  margin-bottom: 1.5rem;
 }
