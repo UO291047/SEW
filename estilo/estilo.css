@@ -37,6 +37,10 @@ body > p{
     font-size: 0.8em;
 }
 
+header a {
+    font-weight: bold;
+}
+
 /*Especificidad: 011*/
 a:link{
     /*El color de fondo es heredado del elemento body*/
@@ -78,4 +82,58 @@ ul dl dt{
 dd, dt {
   line-height: 1em;
   margin-bottom: 1.5rem;
+}
+
+/*Especificidad: 001*/
+table {
+    table-layout: fixed;
+    width: 100%;
+    border: 0.2em solid #444444;
+    margin: auto;
+}
+
+/*Especificidad: 001*/
+tr {
+    /*El color es heredado del elemento body*/
+    background-color: #DBDCCA;
+}
+
+/*Especificidad: 001, 001*/
+th, td {
+    padding: 0.7em;
+}
+
+/*Especificidad: 002, 002*/
+tbody th, tbody td{
+    text-align: left;
+}
+
+/*Especificidad: 012*/
+tbody tr:nth-child(odd) {
+    /*El color es heredado del elemento body*/
+    background-color: #F1F1E9;
+}
+
+/*Especificidad: 012*/
+tbody tr:nth-child(even) {
+    /*El color es heredado del elemento body*/
+    background-color: #E3E4D3;
+}
+
+/*Especificidad: 001*/
+img{
+    max-width: 100vw;
+    height: auto;
+}
+
+/*Especificidad: 001*/
+video{
+    max-width: 60vw;
+    height: auto;
+}
+
+/*Especificidad: 011*/
+a.active{
+    /*El color de fondo es heredado del elemento body*/
+    color:#075A13;
 }

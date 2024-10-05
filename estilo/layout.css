@@ -1,0 +1,23 @@
+/*David Gonzalez Gonzalez UO291047*/ 
+
+/*Especificidad: 001*/
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 5em;
+}
+
+@media (max-width: 30em) {
+    /*Especificidad 002*/
+    header a {
+        font-weight: normal;
+    }
+
+    /*Especificidad 002*/
+    body > p{
+        display: none;
+    }
+}
