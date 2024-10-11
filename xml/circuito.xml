@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+
+<circuito>
+    <datosCircuito>
+        <nombre>Yas Marina</nombre>
+        <medidas>
+            <longitud unidades="km">5.281</longitud>
+            <anchuraMedia><longitud unidades="m">12</longitud></anchuraMedia>
+            <sectores>
+                <sector>
+                    <longitud unidades="m">251.26</longitud>
+                    <coords longitud="24.47036529464194" latitud="54.60804048152899" altitud="5"></coords>
+                    <num>1</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">100</longitud>
+                    <coords longitud="1" latitud="2" altitud="3"></coords>
+                    <num>1</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">100</longitud>
+                    <coords longitud="1" latitud="2" altitud="3"></coords>
+                    <num>1</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">100</longitud>
+                    <coords longitud="1" latitud="2" altitud="3"></coords>
+                    <num>1</num>
+                </sector>
+            </sectores>
+        </medidas>
+        <ubicacion>
+            <localidad>Abu Dabi</localidad>
+            <pais>Emiratos Arabes</pais>
+            <coords longitud="24.470169284798708" latitud="54.60814461806192" altitud="5"></coords>
+        </ubicacion>
+        <galeria>
+            <refs>
+                <ref>https://es.wikipedia.org/wiki/Circuito_Yas_Marina</ref>
+                <ref>https://www.yasmarinacircuit.com/</ref>
+                <ref>http://news.bbc.co.uk/sport2/hi/motorsport/formula_one/7473748.stm</ref>
+            </refs>
+            <fotos>
+                <foto>"../multimedia/imagenes/Yas_Marina_Circuit.png"</foto>
+            </fotos>
+            <videos>
+                <video></video>
+            </videos>
+        </galeria>
+    </datosCircuito>
+    <datosCarrera>
+        <fecha>8/12/2024</fecha>
+        <horaIniEsp>1:00</horaIniEsp>
+        <vueltas>58</vueltas>
+    </datosCarrera>
+</circuito>
