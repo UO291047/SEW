@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="tiny" height="300" version="1.2" width="1500">
+  <defs/>
+  <text fill="black" font-size="13" transform="rotate(-90, 9.57, 250)" x="9.57" y="250">Sector 1</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 48.472, 250)" x="48.472" y="250">Sector 2</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 58.92400000000001, 250)" x="58.92400000000001" y="250">Sector 3</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 79.406, 250)" x="79.406" y="250">Sector 4</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 97.298, 250)" x="97.298" y="250">Sector 5</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 112.634, 250)" x="112.634" y="250">Sector 6</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 141.28, 250)" x="141.28" y="250">Sector 7</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 205.612, 250)" x="205.612" y="250">Sector 8</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 214.904, 250)" x="214.904" y="250">Sector 9</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 223.554, 250)" x="223.554" y="250">Sector 10</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 453.39400000000006, 250)" x="453.39400000000006" y="250">Sector 11</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 456.86400000000003, 250)" x="456.86400000000003" y="250">Sector 12</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 467.63000000000005, 250)" x="467.63000000000005" y="250">Sector 13</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 492.31800000000004, 250)" x="492.31800000000004" y="250">Sector 14</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 521.462, 250)" x="521.462" y="250">Sector 15</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 587.404, 250)" x="587.404" y="250">Sector 16</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 650.908, 250)" x="650.908" y="250">Sector 17</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 663.98, 250)" x="663.98" y="250">Sector 18</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 682.066, 250)" x="682.066" y="250">Sector 19</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 697.87, 250)" x="697.87" y="250">Sector 20</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 741.216, 250)" x="741.216" y="250">Sector 21</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 769.7080000000001, 250)" x="769.7080000000001" y="250">Sector 22</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 795.4920000000001, 250)" x="795.4920000000001" y="250">Sector 23</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 817.274, 250)" x="817.274" y="250">Sector 24</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 841.366, 250)" x="841.366" y="250">Sector 25</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 900.6260000000001, 250)" x="900.6260000000001" y="250">Sector 26</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 935.1, 250)" x="935.1" y="250">Sector 27</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 946.506, 250)" x="946.506" y="250">Sector 28</text>
+  <text fill="black" font-size="13" transform="rotate(-90, 1052.732, 250)" x="1052.732" y="250">Sector 29</text>
+  <polyline fill="none" points="9.57,104.4321 48.472,70.7007 58.924,47.8446 79.406,19.5001 97.298,10.0 112.634,17.3283 141.28,56.744 205.612,70.4943 214.904,70.8069 223.554,78.5963 453.394,103.7276 456.864,99.7961 467.63,92.7453 492.318,83.51 521.462,98.4086 587.404,102.6894 650.908,101.1329 663.98,93.6145 682.066,92.6302 697.87,99.7959 741.216,110.8025 769.708,110.3932 795.492,108.3831 817.274,108.7404 841.366,111.0609 900.626,99.5469 935.1,101.9594 946.506,101.4391 1052.732,107.9708" stroke="rgb(100%,0%,0%)" stroke-width="3"/>
+</svg>
