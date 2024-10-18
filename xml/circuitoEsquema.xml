@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuito xmlns="http://www.uniovi.es"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
+
+    <datosCircuito>
+        <nombre>Yas Marina</nombre>
+        <medidas>
+            <longitud unidades="km">5.281</longitud>
+            <anchuraMedia><longitud unidades="m">12</longitud></anchuraMedia>
+            <sectores>
+                <sector>
+                    <longitud unidades="m">47.85</longitud>
+                    <coords longitud="54.60812042100798" latitud="24.47060328161511" altitud="3.816271918271898"></coords>
+                    <num>1</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">194.51</longitud>
+                    <coords longitud="54.60766879371468" latitud="24.47230887265309" altitud="7.189418524847254"></coords>
+                    <num>2</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">52.26</longitud>
+                    <coords longitud="54.60734276447753" latitud="24.47265791205441" altitud="9.475023864878017"></coords>
+                    <num>3</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">102.41</longitud>
+                    <coords longitud="54.60639126727918" latitud="24.47295154621566" altitud="12.30948053941612"></coords>
+                    <num>4</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">89.46</longitud>
+                    <coords longitud="54.60580980514831" latitud="24.4735457652851" altitud="13.25948622702136"></coords>
+                    <num>5</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">76.68</longitud>
+                    <coords longitud="54.60577755309563" latitud="24.47422715166952" altitud="12.52665614070052"></coords>
+                    <num>6</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">143.23</longitud>
+                    <coords longitud="54.60607880331609" latitud="24.47548180255405" altitud="8.585081631610338"></coords>
+                    <num>7</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">321.66</longitud>
+                    <coords longitud="54.60569413489006" latitud="24.47837898463319" altitud="7.210058938157966"></coords>
+                    <num>8</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">46.46</longitud>
+                    <coords longitud="54.60536328054876" latitud="24.47866969953453" altitud="7.178794037223934"></coords>
+                    <num>9</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">43.25</longitud>
+                    <coords longitud="54.60506603938448" latitud="24.47840581779525" altitud="6.399854216315058"></coords>
+                    <num>10</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">1149.2</longitud>
+                    <coords longitud="54.60155120267791" latitud="24.46854427752115" altitud="3.886723838879333"></coords>
+                    <num>11</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">17.35</longitud>
+                    <coords longitud="54.60166442661536" latitud="24.4684395231" altitud="4.279880591843259"></coords>
+                    <num>12</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">53.83</longitud>
+                    <coords longitud="54.60219983554155" latitud="24.46847858693849" altitud="4.98495246850996"></coords>
+                    <num>13</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">123.44</longitud>
+                    <coords longitud="54.60254987908073" latitud="24.46741910431352" altitud="5.908483132998463"></coords>
+                    <num>14</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">145.72</longitud>
+                    <coords longitud="54.60334660822328" latitud="24.46631909117446" altitud="4.418625699407213"></coords>
+                    <num>15</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">329.71</longitud>
+                    <coords longitud="54.60589915012819" latitud="24.46447450221664" altitud="3.990545546895079"></coords>
+                    <num>16</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">317.52</longitud>
+                    <coords longitud="54.60868833076824" latitud="24.46317297627262" altitud="4.146192249663452"></coords>
+                    <num>17</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">65.36</longitud>
+                    <coords longitud="54.60933057995971" latitud="24.46329372953103" altitud="4.898032720677921"></coords>
+                    <num>18</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">90.43</longitud>
+                    <coords longitud="54.60950158000275" latitud="24.46409398964243" altitud="4.996465953723761"></coords>
+                    <num>19</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">79.02</longitud>
+                    <coords longitud="54.60889188808147" latitud="24.4645559203233" altitud="4.279897892993172"></coords>
+                    <num>20</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">216.73</longitud>
+                    <coords longitud="54.60677175392199" latitud="24.46472545915073" altitud="3.179236018604563"></coords>
+                    <num>21</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">142.46</longitud>
+                    <coords longitud="54.60559620410216" latitud="24.46542506687722" altitud="3.220166473598558"></coords>
+                    <num>22</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">128.92</longitud>
+                    <coords longitud="54.6053393785138" latitud="24.4665574692217" altitud="3.421180707184845"></coords>
+                    <num>23</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">108.91</longitud>
+                    <coords longitud="54.6063959871823" latitud="24.46678296174626" altitud="3.38544362309759"></coords>
+                    <num>24</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">120.46</longitud>
+                    <coords longitud="54.60645521730375" latitud="24.46786576178432" altitud="3.153392060235829"></coords>
+                    <num>25</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">296.3</longitud>
+                    <coords longitud="54.60355733680804" latitud="24.46774632284743" altitud="4.304798883520375"></coords>
+                    <num>26</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">172.37</longitud>
+                    <coords longitud="54.60266913244273" latitud="24.46906231671679" altitud="4.063544107646817"></coords>
+                    <num>27</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">57.03</longitud>
+                    <coords longitud="54.60264912013098" latitud="24.46956882406439" altitud="4.115573635094185"></coords>
+                    <num>28</num>
+                </sector>
+                <sector>
+                    <longitud unidades="m">531.13</longitud>
+                    <coords longitud="54.60783247051281" latitud="24.4702677314103" altitud="3.462403526148694"></coords>
+                    <num>29</num>
+                </sector>
+            </sectores>
+        </medidas>
+        <ubicacion>
+            <localidad>Abu Dabi</localidad>
+            <pais>Emiratos Arabes</pais>
+            <coords longitud="54,6052196" latitud="24,4699257" altitud="3,2819258"></coords>
+        </ubicacion>
+        <galeria>
+            <refs>
+                <ref>https://es.wikipedia.org/wiki/Circuito_Yas_Marina</ref>
+                <ref>https://www.yasmarinacircuit.com/</ref>
+                <ref>http://news.bbc.co.uk/sport2/hi/motorsport/formula_one/7473748.stm</ref>
+            </refs>
+            <fotos>
+                <foto>"../multimedia/imagenes/Yas_Marina_Circuit.png"</foto>
+            </fotos>
+            <videos>
+                <video></video>
+            </videos>
+        </galeria>
+    </datosCircuito>
+    <datosCarrera>
+        <fecha>2024-12-08</fecha>
+        <horaIniEsp>01:00:00</horaIniEsp>
+        <vueltas>58</vueltas>
+    </datosCarrera>
+    
+</circuito>
