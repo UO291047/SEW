@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="js/pais.js"></script>
 </head>
 
 <body>
@@ -34,6 +35,15 @@
     <p>Estas en: <a href="index.html">Indice</a> >> Meteorologia</p>
 
     <h2>Meteorologia</h2>
-    <p> En desarrollo </p>
+    
+    <script>
+        var pais = new Pais("Emiratos Árabes Unidos", "Abu Dabi", 10_760_645);
+        pais.rellenarAtributosSecundarios("Monarquia Federal", [54,6052196,24,4699257], "Islam");
+        document.write("<p>" + "País: " + pais.getNombrePais() + "</p>");
+        document.write("<p>" + "Capital: " + pais.getNombreCapital() + "</p>");
+        document.write(pais.getExtraInfo());
+        pais.printCoords();
+        
+    </script>
 </body>
 </html>
