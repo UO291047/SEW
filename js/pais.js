@@ -43,14 +43,14 @@ class Pais {
 
     getExtraInfo(){
         return "<ul>" +
-                    "<li>" + "Población: " + this.poblacion + "</li>" +
-                    "<li>" + "Tipo de gobierno: " + this.tipo_gobierno + "</li>" +
-                    "<li>" + "Religión mayoritaria: " + this.religion + "</li>" +
-                    "<li>" + "Nombre del circuito: " + this.nombre_circuito + "</li>" +
+                    "<li>" + "Población: " + this.getPoblacion() + "</li>" +
+                    "<li>" + "Tipo de gobierno: " + this.getTipoGobierno() + "</li>" +
+                    "<li>" + "Religión mayoritaria: " + this.getReligion() + "</li>" +
+                    "<li>" + "Nombre del circuito: " + this.getNombreCircuito() + "</li>" +
                 "</ul>"
     }
 
     printCoords(){
-        document.write("<p>" + "Coordenadas del circuito: [" + this.coords_meta + "]" + "</p>");
+        document.write("<p>" + "Coordenadas del circuito: [" + this.getCoords() + "]" + "</p>");
     }
 }

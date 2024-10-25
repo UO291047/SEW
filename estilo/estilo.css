@@ -32,11 +32,6 @@ h1 a:link{
     text-decoration: none;
 }
 
-/*Especificidad 002*/
-body > p{
-    font-size: 0.8em;
-}
-
 header a {
     font-weight: bold;
 }

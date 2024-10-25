@@ -5,14 +5,16 @@
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name ="author" content ="David Gonzalez" />
-    <meta name ="description" content ="Juegos" />
-    <meta name ="keywords" content ="juegos" />
+    <meta name ="description" content ="Juego de memoria" />
+    <meta name ="keywords" content ="juegos,memoria" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
 
-    <title>F1Desktop - Juegos</title>
+    <title>F1Desktop - Juego Memoria</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="js/memoria.js"></script>
 </head>
 
 <body>
@@ -31,13 +33,23 @@
         </nav>
     </header>
 
-    <p>Estas en: <a href="index.html">Indice</a> >> Juegos</p>
+    <p>Estas en: <a href="index.html">Indice</a> >> <a href="juegos.html">Juegos</a> >> Memoria</p>
 
     <h2>Juegos</h2>
 
     <nav>
-        <a href="memoria.html">Memoria</a>
+        <a class="active" href="memoria.html">Memoria</a>
         <a href="semaforo.html">Semaforo</a>
     </nav>
+
+    <!-- flex-container -->
+    <section>
+        <h2>Juego Memoria</h2>
+    
+        <script>       
+            const memoria = new Memoria();
+        </script>
+    
+    </section>
 </body>
 </html>
