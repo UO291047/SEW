@@ -1,0 +1,29 @@
+/*David Gonzalez Gonzalez UO291047*/ 
+
+/*Especificidad: 002*/
+body > section {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    list-style: none;
+    max-width: 100%;
+}
+
+/*Especificidad: 001*/
+article {
+    width: calc(100/5);
+    height: 20em;
+    margin: 0.5em;
+    padding: 2em;
+    font-weight: bold;
+    position: relative;
+    border: 0.2em solid #000A;
+}
+
+/*Especificidad 002*/
+article > h4 {
+    text-align: center;
+}
+

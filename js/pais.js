@@ -54,45 +54,6 @@ class Pais {
         document.write("<p>" + "Coordenadas del circuito: [" + this.getCoords() + "]" + "</p>");
     }
 
-    cargarDatos(){
-        $.ajax({
-            dataType: "xml",
-            url: this.url,
-            method: 'GET',
-            success: function(datos){
-                
-                //Presentación del archivo XML en modo texto
-                $("h5").text((new XMLSerializer()).serializeToString(datos));
-            
-                //Extracción de los datos contenidos en el XML
-                var temperatura           = $('temperature',datos).attr("value");
-                var temperaturaMin        = $('temperature',datos).attr("min");
-                var temperaturaMax        = $('temperature',datos).attr("max");
-                var humedad               = $('humidity',datos).attr("value");
-                var precipitacionValue    = $('precipitation',datos).attr("value");
-                var horaMedida            = $('lastupdate',datos).attr("value");
-                var horaMedidaMiliSeg1970 = Date.parse(horaMedida);
-                    horaMedidaMiliSeg1970 -= minutosZonaHoraria * 60 * 1000;
-                var horaMedidaLocal       = (new Date(horaMedidaMiliSeg1970)).toLocaleTimeString("es-ES");
-                var fechaMedidaLocal      = (new Date(horaMedidaMiliSeg1970)).toLocaleDateString("es-ES");
-                
-                var stringDatos =  "<li>Temperatura: " + temperatura + " grados Celsius</li>";
-                    stringDatos += "<li>Temperatura mínima: " + temperaturaMin + " grados Celsius</li>";
-                    stringDatos += "<li>Temperatura máxima: " + temperaturaMax + " grados Celsius</li>";
-                    stringDatos += "<li>Humedad: " + humedad + " % </li>";
-                    stringDatos += "<li>Precipitación valor: " + precipitacionValue + "</li>";
-                    stringDatos += "<li>Hora de la medida: " + horaMedidaLocal + "</li>";
-                    stringDatos += "<li>Fecha de la medida: " + fechaMedidaLocal + "</li>";
-                
-                $("pre").html(stringDatos);                  
-            },
-            error:function(){
-                $("h4").remove();
-                $("pre").remove();
-            }
-        });
-    }
-
     crearElemento(tipoElemento, texto, insertarAntesDe){
         // Crea un nuevo elemento modificando el árbol DOM
         // El elemnto creado es de 'tipoElemento' con un 'texto' 
@@ -102,17 +63,73 @@ class Pais {
         $(insertarAntesDe).before(elemento);
     }
 
+    cargarDatos(){
+        $.ajax({
+            dataType: "xml",
+            url: this.url,
+            method: 'GET',
+            success: function(datos){
+                
+                var stringDatos = "";
+                var h4 = "";
+                var ul = "";
+                var article = "";
+                var temperaturaMin = 100;
+                var temperaturaMax = -100;
+
+                //Extracción de los datos contenidos en el XML
+                $('time',datos).each(function(i){
+                    i += 1;
+
+                    //Temperaturas maxima y minima
+                    var newTemperaturaMin = $('time:nth-of-type('+ i +') > temperature',datos).attr("min");
+                    if(newTemperaturaMin < temperaturaMin){
+                        temperaturaMin = newTemperaturaMin;
+                    }
+                    var newTemperaturaMax = $('time:nth-of-type('+ i +') > temperature',datos).attr("max");
+                    if(newTemperaturaMax > temperaturaMax){
+                        temperaturaMax = newTemperaturaMax;
+                    }
+
+                    //La respuesta de la API da el tiempo cada 3 horas, es decir, 8 veces al dia
+                    if(i%8 == 0){
+                        var dia                   = $('time:nth-of-type('+ i +')',datos).attr("from").split("T")[0];
+                        var temperatura           = $('time:nth-of-type('+ i +') > temperature',datos).attr("value");
+                        var humedad               = $('time:nth-of-type('+ i +') > humidity',datos).attr("value");
+                        var precipitacionValue    = $('time:nth-of-type('+ i +') > precipitation',datos).attr("value");
+                        var icono                 = $('time:nth-of-type('+ i +') > symbol', datos).attr("var");
+                        var iconoDesc             = $('time:nth-of-type('+ i +') > symbol', datos).attr("name");
+                        
+                        stringDatos =  "<p>Temperatura: " + temperatura + " ºC</p>";
+                            stringDatos += "<p>Temperatura mínima: " + temperaturaMin + " ºC</p>";
+                            stringDatos += "<p>Temperatura máxima: " + temperaturaMax + " ºC</p>";
+                            stringDatos += "<p>Humedad: " + humedad + " % </p>";
+                            stringDatos += "<p>Precipitación: " + precipitacionValue + "</p>";
+                            stringDatos += "<p> <img src=https://openweathermap.org/img/wn/" + icono + "@2x.png alt=" + iconoDesc +"> </p>";
+                        
+                        h4 = "<h4> " + dia + "</h4>";
+                        article = "<article> " + h4 + stringDatos + "</article>";
+                        $("section").html($("section").html() + article);
+                    }
+                });
+            },
+            error:function(){
+                $("h3").remove();
+                $("section").remove();
+            }
+        });
+    }
+
     verXML(){
 
         this.apikey = "dff06432f9d5b3e7c70f9a5f75d2615d";
         this.tipo = "&mode=xml";
         this.unidades = "&units=metric";
         this.idioma = "&lang=es";
-        this.url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + this.coords_capital[0] + "&lon=" + this.coords_capital[1] + this.unidades + this.idioma + this.tipo + "&appid=" + this.apikey;
+        this.url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + this.coords_meta[1] + "&lon=" + this.coords_meta[0] + this.unidades + this.idioma + this.tipo + "&appid=" + this.apikey;
 
-        //Muestra el archivo JSON recibido
-        this.crearElemento("h4","Datos","footer"); // Crea un elemento con DOM 
-        this.crearElemento("pre","","footer"); // Crea un elemento con DOM para los datos obtenidos con XML
+        this.crearElemento("h3","Predicción","footer"); // Crea un elemento con DOM 
+        this.crearElemento("section","","footer"); // Crea un elemento con DOM para los datos obtenidos con XML
         this.cargarDatos();
     }
 }
