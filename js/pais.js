@@ -72,7 +72,6 @@ class Pais {
                 
                 var stringDatos = "";
                 var h4 = "";
-                var ul = "";
                 var article = "";
                 var temperaturaMin = 100;
                 var temperaturaMax = -100;
@@ -97,6 +96,9 @@ class Pais {
                         var temperatura           = $('time:nth-of-type('+ i +') > temperature',datos).attr("value");
                         var humedad               = $('time:nth-of-type('+ i +') > humidity',datos).attr("value");
                         var precipitacionValue    = $('time:nth-of-type('+ i +') > precipitation',datos).attr("value");
+                        if(precipitacionValue == null){
+                            precipitacionValue = "No disponible";
+                        }
                         var icono                 = $('time:nth-of-type('+ i +') > symbol', datos).attr("var");
                         var iconoDesc             = $('time:nth-of-type('+ i +') > symbol', datos).attr("name");
                         

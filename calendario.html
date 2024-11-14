@@ -12,7 +12,12 @@
     <title>F1Desktop - Calendario</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+    <script src="js/agenda.js"></script>
 </head>
 
 <body>
@@ -34,6 +39,13 @@
     <p>Estas en: <a href="index.html">Indice</a> >> Calendario</p>
 
     <h2>Calendario</h2>
-    <p> En desarrollo </p>
+
+    <script>
+        const agenda = new Agenda();
+    </script>
+    
+    <footer>
+        <button onclick="agenda.verXML()">Obtener datos F1</button> 
+    </footer>
 </body>
 </html>

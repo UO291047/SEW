@@ -6,6 +6,7 @@ body > section {
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-around;
+    padding: 0;
     margin: auto;
     list-style: none;
     max-width: 100%;
@@ -13,17 +14,25 @@ body > section {
 
 /*Especificidad: 001*/
 article {
-    width: calc(100/5);
-    height: 20em;
-    margin: 0.5em;
-    padding: 2em;
+    display: grid;
+    width: calc(100% / 5);
+    margin: 0.3em;
     font-weight: bold;
     position: relative;
     border: 0.2em solid #000A;
+    /*El color es heredado del elemento body*/
+    background-color: #DBDCCA;
 }
 
 /*Especificidad 002*/
-article > h4 {
+article h4 {
     text-align: center;
+    padding: 2em;
+}
+
+/*Especificidad: 002*/
+article p {
+    grid-column: 1 / -1;
+    padding-left: 0.3em;
 }
 
