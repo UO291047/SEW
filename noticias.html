@@ -12,7 +12,12 @@
     <title>F1Desktop - Noticias</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+    <script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -34,6 +39,34 @@
     <p>Estas en: <a href="index.html">Indice</a> >> Noticias</p>
 
     <h2>Noticias</h2>
-    <p> En desarrollo </p>
+    <script>
+        const noticias = new Noticias();
+    </script>
+    
+    <p>
+        <input type="file" onchange="noticias.readInputFile(this.files);">
+    </p>
+    
+    <section>
+        <h3> Añadir noticia </h3>
+        <label>
+            <p>Titular:</p>
+            <input type="text" name="titular">
+        </label>
+        <label>
+            <p>Entradilla:</p>
+            <input type="text" name="entradilla">
+        </label>
+        <label>
+            <p>Autor:</p>
+            <input type="text" name="autor">
+        </label>
+        
+        <button onclick="noticias.crearNoticia();">Crear</button>
+    </section>
+    
+    <section>
+
+    </section>
 </body>
 </html>
