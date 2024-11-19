@@ -32,7 +32,7 @@ class Viajes{
     }
 
     getMapaEstatico(){
-        var ubicacion = document.querySelector("main");
+        var ubicacion = document.querySelector("body > div");
         
         var apiKey = "?access_token=pk.eyJ1IjoidW8yOTEwNDciLCJhIjoiY2xxOW1uOHd4MWcyNjJpcDdqcDFrZmRoNSJ9.wRJntK8K2RqcAqRrw0XE2g";
         //URL: obligatoriamente https
@@ -53,8 +53,8 @@ class Viajes{
     }
 
     getMapaDinamico(){
-        const mapContainer = document.querySelector("main");
-        //Limpiamos el main por si ya tenía algo
+        const mapContainer = document.querySelector("body > div");
+        //Limpiamos el contenedor por si ya tenía algo
         while(mapContainer.firstChild){
             mapContainer.removeChild(mapContainer.firstChild);
         }
@@ -70,32 +70,5 @@ class Viajes{
         map.scrollZoom.disable();
     }
 
-    readInputFile(files){
-        var archivo = files[0];
-        var tipoTexto = /text.*/;
-        if (archivo.type.match(tipoTexto)) 
-        {
-            var lector = new FileReader();
-
-            lector.onload = function(event){
-                var viajes = new Viajes();
-                var resultXML = lector.result;
-                var resultHTML = viajes.procesarXML(resultXML);
-                viajes.procesarXML(resultHTML);
-            }
-
-            lector.readAsText(archivo);
-
-        }
-        else {
-            alert("Error : ¡¡¡ Archivo no válido !!!");
-        }
-    }
-
-    procesarXML(resultXML) {
-        var areaVisualizacion = document.getElementById("main");
-        var xmlDoc = $.parseXML(resultXML);
-        areaVisualizacion.innerText = xmlDoc;
-    }
 
 }

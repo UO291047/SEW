@@ -12,7 +12,15 @@
     <title>F1Desktop - Circuito</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/mapa.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+    <script src="js/circuito.js"></script>
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
 </head>
 
 <body>
@@ -34,6 +42,30 @@
     <p>Estas en: <a href="index.html">Indice</a> >> Circuito</p>
 
     <h2>Circuito</h2>
-    <p> En desarrollo </p>
+
+    <script>
+        var circuito = new Circuito();
+    </script>
+    
+    <label>
+        <p>Mostrar XML:</p>
+        <input type="file" onchange="circuito.readInputFile(this.files);">
+    </label>
+    
+    <label>
+        <p>Cargar circuito en formato Kml:</p>
+        <input type="file" onchange="circuito.cargarArchivoKML(this.files);" accept=".kml">
+    </label>
+
+    <label>
+        <p>Cargar altimetria del circuito:</p>
+        <input type="file" onchange="circuito.cargarAltimetria(this.files);" accept=".svg">
+    </label>
+
+    <!-- Lleva id para poder poner el mapa dinamico -->
+    <div id="map">
+        
+    </div>
+
 </body>
 </html>

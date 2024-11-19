@@ -12,7 +12,7 @@
     <title>F1Desktop - Viajes</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/viajes.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/mapa.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
@@ -51,20 +51,10 @@
         <input type="button" value="Obtener mapa dinamico" onclick="viajes.getMapaDinamico();">
     </section>
     
-    <label>
-        <p>Mostrar XML:</p>
-        <input type="file" onchange="viajes.readInputFile(this.files);">
-    </label>
-    
-    <label>
-        <p>Cargar ruta en formato Kml:</p>
-        <input type="file" onchange="viajes.cargarArchivosKML(this.files);" accept=".kml" multiple>
-    </label>
-    
     <!-- Lleva id para poder poner el mapa dinamico -->
-    <main id="map">
+    <div id="map">
         
-    </main>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,4 @@
+body > div:nth-last-child(2){
+    width: 70em;
+    height: 70em;
+}
