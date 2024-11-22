@@ -1,9 +1,9 @@
-class CanvasDrawing {
+class API {
     constructor() {
-        this.canvas = document.getElementById('drawingCanvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.colorPicker = document.getElementById('colorPicker');
-        this.lineWidthInput = document.getElementById('lineWidth');
+        this.canvas = document.querySelector("canvas");
+        this.ctx = this.canvas.getContext("2d");
+        this.colorPicker = document.querySelector("label:first-of-type > input");
+        this.lineWidthInput = document.querySelector("label:last-of-type > input");
         this.isDrawing = false;
 
         this.init();
@@ -16,12 +16,17 @@ class CanvasDrawing {
         this.canvas.addEventListener('mouseup', () => this.stopDrawing());
         this.canvas.addEventListener('mouseout', () => this.stopDrawing());
 
+        this.canvas.addEventListener('touchstart', (e) => this.startDrawing(e));
+        this.canvas.addEventListener('touchmove', (e) => this.draw(e));
+        this.canvas.addEventListener('touchend', () => this.stopDrawing());
+        this.canvas.addEventListener('touchcancel', () => this.stopDrawing());
+
         // Botones de funcionalidad
-        document.getElementById('clearCanvas').addEventListener('click', () => this.clearCanvas());
-        document.getElementById('copyCanvas').addEventListener('click', () => this.copyCanvas());
-        document.getElementById('pasteCanvas').addEventListener('click', () => this.pasteCanvas());
-        document.getElementById('saveCanvas').addEventListener('click', () => this.saveCanvas());
-        document.getElementById('loadCanvas').addEventListener('click', () => this.loadCanvas());
+        document.querySelector("button:nth-of-type(1)").addEventListener('click', () => this.clearCanvas());
+        document.querySelector("button:nth-of-type(2)").addEventListener('click', () => this.copyCanvas());
+        document.querySelector("button:nth-of-type(3)").addEventListener('click', () => this.pasteCanvas());
+        document.querySelector("button:nth-of-type(4)").addEventListener('click', () => this.saveCanvas());
+        document.querySelector("button:nth-of-type(5)").addEventListener('click', () => this.loadCanvas());
     }
 
     startDrawing(e) {
@@ -89,4 +94,4 @@ class CanvasDrawing {
 }
 
 // Inicializar la funcionalidad cuando la página esté lista
-document.addEventListener('DOMContentLoaded', () => new CanvasDrawing());
+//document.addEventListener('DOMContentLoaded', () => new CanvasDrawing());

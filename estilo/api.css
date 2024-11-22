@@ -1,17 +1,8 @@
 canvas {
-    border: 1px solid #000;
+    border: 0.2em solid #000A;
     display: block;
-    margin: 20px auto;
+    margin: 0.3em;
     cursor: crosshair;
-}
-
-#toolbar {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#toolbar button, #toolbar input {
-    margin: 5px;
-    padding: 10px;
-    font-size: 14px;
+    width: 20em;
+    height: 15em;
 }
