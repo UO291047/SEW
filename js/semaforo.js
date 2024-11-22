@@ -73,4 +73,15 @@ class Semaforo{
         main.querySelectorAll("button")[1].disabled = true;
     }
 
+    createRecordForm(){
+        const container = document.querySelector("body section");
+        let form = "<form action='#' method='post' name='registro'>" 
+                    + "<input type='text' name='name' value='Nombre'/>"
+                    + "<input type='text' name='surname' value='Apellido'/>"
+                    + "<input type='text' name='difficulty' value='Dificultad'/>"
+                    + "<input type='text' name='time' value='Tiempo'/>"
+                + "</form>";
+        $(container).html($(container).html() + form);
+    }
+
 }
