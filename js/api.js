@@ -10,14 +10,21 @@ class Api {
     }
 
     init() {
-        // Configurar eventos de dibujo
+        // Asignar eventos de ratón
         this.canvas.addEventListener('mousedown', (e) => this.startDrawing(e));
         this.canvas.addEventListener('mousemove', (e) => this.draw(e));
         this.canvas.addEventListener('mouseup', () => this.stopDrawing());
         this.canvas.addEventListener('mouseout', () => this.stopDrawing());
 
-        this.canvas.addEventListener('touchstart', (e) => this.startDrawing(e));
-        this.canvas.addEventListener('touchmove', (e) => this.draw(e));
+        // Asignar eventos táctiles
+        this.canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevenir desplazamiento de la página
+            this.startDrawing(e);
+        });
+        this.canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevenir desplazamiento de la página
+            this.draw(e);
+        });
         this.canvas.addEventListener('touchend', () => this.stopDrawing());
         this.canvas.addEventListener('touchcancel', () => this.stopDrawing());
 
@@ -29,17 +36,29 @@ class Api {
         document.querySelector("button:nth-of-type(5)").addEventListener('click', () => this.loadCanvas());
     }
 
+    // Obtener posición relativa en táctiles y ratón
+    getPosition(event) {
+        if (event.touches) {
+            const touch = event.touches[0];
+            return { x: touch.clientX - this.canvas.offsetLeft, y: touch.clientY - this.canvas.offsetTop };
+        } else {
+            return { x: event.offsetX, y: event.offsetY };
+        }
+    }
+
     startDrawing(e) {
         this.isDrawing = true;
+        const pos = this.getPosition(e);
         this.ctx.beginPath();
-        this.ctx.moveTo(e.offsetX, e.offsetY);
+        this.ctx.moveTo(pos.x, pos.y);
     }
 
     draw(e) {
         if (!this.isDrawing) return;
+        const pos = this.getPosition(e);
+        this.ctx.lineTo(pos.x, pos.y);
         this.ctx.lineWidth = this.lineWidthInput.value;
         this.ctx.strokeStyle = this.colorPicker.value;
-        this.ctx.lineTo(e.offsetX, e.offsetY);
         this.ctx.stroke();
     }
 
@@ -55,7 +74,6 @@ class Api {
     copyCanvas() {
         this.canvas.toBlob(async (blob) => {
             await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-            alert('Canvas copiado al portapapeles.');
         });
     }
 
@@ -78,7 +96,6 @@ class Api {
     saveCanvas() {
         const imageData = this.canvas.toDataURL();
         localStorage.setItem('canvasDrawing', imageData);
-        alert('Dibujo guardado en el almacenamiento local.');
     }
 
     loadCanvas() {
@@ -87,11 +104,6 @@ class Api {
             const img = new Image();
             img.onload = () => this.ctx.drawImage(img, 0, 0);
             img.src = imageData;
-        } else {
-            alert('No hay dibujo guardado.');
         }
     }
 }
-
-// Inicializar la funcionalidad cuando la página esté lista
-//document.addEventListener('DOMContentLoaded', () => new CanvasDrawing());
