@@ -14,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="stylesheet" type="text/css" href="estilo/semaforo_grid.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
     <script src="js/semaforo.js"></script>
 </head>
 
@@ -32,7 +35,28 @@
                 $this->pass = "DBPSWD2024";
                 $this->dbname = "records";
             }
+
+            public function manageForm(){
+                $name = $_POST["name"];
+                $surname = $_POST["surname"];
+                $level = $_POST["level"];
+                $time = $_POST["time"];
+
+                $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+                if ($conn->connect_error) {
+                    die("Error de conexion: ". $conn->connect_error);
+                }
+
+                $insertar = "INSERT INTO registro(nombre, apellidos, nivel, tiempo) VALUES ($name, $surname, $level, $time)";
+                if ($conn->query($insertar) === TRUE) {
+                    echo "Nuevo registro creado exitosamente";
+                } else {
+                    echo "Error al insertar datos: " . $conn->error;
+                }
+            }
         }
+
+        $record = new Record();
     ?>
 
     <!-- Datos con el contenidos que aparece en el navegador -->
@@ -65,9 +89,14 @@
     </main>
 
     <section>
-        <h3>Registrar</h3>
         
     </section>
+
+    <?php
+        if (count($_POST)> 0) {
+            $record->manageForm();
+        }
+    ?>
 
     <script>
         const semaforo = new Semaforo();

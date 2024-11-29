@@ -62,26 +62,40 @@ class Semaforo{
     stopReaction(){
         this.clic_moment = new Date().getTime();
         const diff = this.clic_moment - this.unload_moment;
-        var reactionTime = "Reacción: " + (diff * 0.001).toFixed(3) + " s";
-        var p = document.querySelector("body main p");
-        p.textContent = reactionTime;
+        this.reactionTime = (diff * 0.001).toFixed(3);
+        let reaction = "Reacción: " + this.reactionTime + " s";
+        let p = document.querySelector("body main p");
+        p.textContent = reaction;
         const main = document.querySelector("body main");
         main.appendChild(p);
         main.classList.remove("load");
         main.classList.remove("unload");
         main.querySelector("button").disabled = false;
         main.querySelectorAll("button")[1].disabled = true;
+        this.createRecordForm();
     }
 
     createRecordForm(){
         const container = document.querySelector("body section");
-        let form = "<form action='#' method='post' name='registro'>" 
-                    + "<input type='text' name='name' value='Nombre'/>"
-                    + "<input type='text' name='surname' value='Apellido'/>"
-                    + "<input type='text' name='difficulty' value='Dificultad'/>"
-                    + "<input type='text' name='time' value='Tiempo'/>"
+        let registrar = "<h3>Registrar</h3>"
+        let form = "<form action='#' method='post' name='registro'>"
+                    + "<label>Nombre: <input type='text' name='name'/></label>"
+                    + "<label>Apellido: <input type='text' name='surname'/></label>"
+                    + "<label>Nivel: <input readonly type='text' name='level' value=" + this.getLevel() + " /></label>"
+                    + "<label>Tiempo: <input readonly type='text' name='time' value=" + this.reactionTime + " /></label>"
+                    + "<input type='submit' name='enviar' value='Enviar'/>"
                 + "</form>";
-        $(container).html($(container).html() + form);
+        $(container).html(registrar + form);
+    }
+
+    getLevel(){
+        if(this.difficulty == this.levels[0]){
+            return 'Dificil';
+        }else if(this.difficulty == this.levels[1]){
+            return 'Medio';
+        }else{
+            return 'Facil';
+        }
     }
 
 }

@@ -96,3 +96,15 @@ main.unload div {
     animation-duration: 0.1s;
     animation-fill-mode: forwards;
 }
+
+body > section {
+    text-align: center;
+}
+
+form input{
+    margin: 1em;
+}
+
+form input:read-only{
+    background-color: lightgrey;
+}
