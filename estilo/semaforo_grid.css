@@ -108,3 +108,7 @@ form input{
 form input:read-only{
     background-color: lightgrey;
 }
+
+section > ul{
+    list-style-type: none;
+}
