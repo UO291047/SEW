@@ -133,20 +133,24 @@ a.active{
     color:#075A13;
 }
 
-body > div:nth-last-child(2){
+/*Mapa*/
+/*Especificidad: 012*/
+body > div:last-of-type{
     width: 70em;
     height: 70em;
 }
 
+/*Especificidad: 001*/
 article {
     width: 100%;
-    max-width: 100vh;
-    height: 70vh;
+    max-width: 85vh;
+    height: 60vh;
     position: relative;
     overflow: hidden; 
     border-radius: 1em;
 }
 
+/*Especificidad: 002*/
 article h3 {
     width: 100%;
     text-align: center;
@@ -154,16 +158,18 @@ article h3 {
     font-size: 2em;
 }
 
+/*Especificidad: 002*/
 article img {
     width: 100%;
-    max-width: 100vh;
-    height: 60vh;
+    max-width: 85vh;
+    height: 50vh;
     position: absolute;
     transition: all 0.5s;
     object-fit: cover;
     border-radius: 0.5em;
 }
 
+/*Especificidad: 002*/
 article button {
     position: absolute;
     width: 2em;
@@ -181,15 +187,18 @@ article button {
     justify-content: center;
 }
 
+/*Especificidad: 012*/
 article button:active {
     transform: scale(1.1);
 }
 
+/*Especificidad: 012*/
 article button:nth-of-type(2) {
     top: 50%;
     left: 2%;
 }
 
+/*Especificidad: 012*/
 article button:nth-of-type(1) {
     top: 50%;
     right: 2%;

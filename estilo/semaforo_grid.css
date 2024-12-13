@@ -97,18 +97,22 @@ main.unload div {
     animation-fill-mode: forwards;
 }
 
+/*Especificidad: 002*/
 body > section {
     text-align: center;
 }
 
+/*Especificidad: 002*/
 form input{
     margin: 1em;
 }
 
+/*Especificidad: 012*/
 form input:read-only{
     background-color: lightgrey;
 }
 
+/*Especificidad: 002*/
 section > ul{
     list-style-type: none;
 }

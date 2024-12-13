@@ -93,39 +93,37 @@
         private $apiKey;
         private $baseUrl;
         private $moneda_base;
-        private $moneda_cambio
-
+        private $moneda_cambio;
+    
         public function __construct($moneda_base, $moneda_cambio) {
             $this->apiKey = "29f041157097a808a55fe5048c61315d";
-            $this->baseUrl = "https://api.apilayer.com/exchangerates_data/latest";
+            $this->baseUrl = "http://api.exchangeratesapi.io/v1/latest";
             $this->moneda_base = $moneda_base;
             $this->moneda_cambio = $moneda_cambio;
         }
-
-        public function obtenerCambio() {
-            $url = $this->baseUrl . "?symbols=$this->moneda_cambio&base=$this->moneda_base";
-
-            $context = stream_context_create([
-                'http' => [
-                    'header' => "apikey: " . $this->apiKey,
-                    'ignore_errors' => true
-                ]
-            ]);
-
-            $respuesta = file_get_contents($url, false, $context);
-
+    
+        public function obtenerCambio(): string {
+            $url = $this->baseUrl . "?access_key=" . $this->apiKey 
+                 . "&base=" . $this->moneda_base 
+                 . "&symbols=" . $this->moneda_cambio;
+    
+            $respuesta = file_get_contents($url);
+    
             if ($respuesta === false) {
                 echo "<h3>Error al intentar conectar con el servidor</h3>";
                 return null;
             }
-
+    
             $json = json_decode($respuesta, true);
-
+    
             if ($json === null || !isset($json['rates'][$this->moneda_cambio])) {
                 echo "<h3>Error al procesar la respuesta JSON</h3>";
+                print("<pre>");
+                print_r($json);
+                print("</pre>");
                 return null;
             }
-
+    
             return $json['rates'][$this->moneda_cambio];
         }
     }
@@ -155,17 +153,6 @@
     <script>
         var viajes = new Viajes();
     </script>
-    
-    <section>
-        <h3>Mapas</h3>
-        <input type="button" value="Obtener mapa estatico" onclick="viajes.getMapaEstatico();">
-        <input type="button" value="Obtener mapa dinamico" onclick="viajes.getMapaDinamico();">
-    </section>
-    
-    <!-- Lleva id para poder poner el mapa dinamico -->
-    <div id="map">
-        
-    </div>
 
     <?php
         $carrusel->obtenerImagenes();
@@ -179,10 +166,21 @@
         $cambio = $moneda->obtenerCambio();
 
         if ($cambio !== null) {
-            echo "<p>Equivalencia entre el euro y el dirham de los Emiratos Árabes Unidos:
-                 1€ equivale a $cambio AED.</p>";
+            echo "<h3>Equivalencia entre el euro y el dirham de los Emiratos Árabes Unidos:</h3>
+                    <p>1€ equivale a $cambio AED.</p>";
         }
     ?>
+
+    <section>
+        <h3>Mapas</h3>
+        <input type="button" value="Obtener mapa estatico" onclick="viajes.getMapaEstatico();">
+        <input type="button" value="Obtener mapa dinamico" onclick="viajes.getMapaDinamico();">
+    </section>
+    
+    <!-- Lleva id para poder poner el mapa dinamico -->
+    <div id="map">
+        
+    </div>
 
 </body>
 </html>
