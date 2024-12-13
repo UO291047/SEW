@@ -87,6 +87,52 @@
 
     $carrusel = new Carrusel("Emiratos Árabes Unidos", "Abu Dabi");
     ?>
+
+    <?php
+    class Moneda {
+        private $apiKey;
+        private $baseUrl;
+        private $moneda_base;
+        private $moneda_cambio
+
+        public function __construct($moneda_base, $moneda_cambio) {
+            $this->apiKey = "29f041157097a808a55fe5048c61315d";
+            $this->baseUrl = "https://api.apilayer.com/exchangerates_data/latest";
+            $this->moneda_base = $moneda_base;
+            $this->moneda_cambio = $moneda_cambio;
+        }
+
+        public function obtenerCambio() {
+            $url = $this->baseUrl . "?symbols=$this->moneda_cambio&base=$this->moneda_base";
+
+            $context = stream_context_create([
+                'http' => [
+                    'header' => "apikey: " . $this->apiKey,
+                    'ignore_errors' => true
+                ]
+            ]);
+
+            $respuesta = file_get_contents($url, false, $context);
+
+            if ($respuesta === false) {
+                echo "<h3>Error al intentar conectar con el servidor</h3>";
+                return null;
+            }
+
+            $json = json_decode($respuesta, true);
+
+            if ($json === null || !isset($json['rates'][$this->moneda_cambio])) {
+                echo "<h3>Error al procesar la respuesta JSON</h3>";
+                return null;
+            }
+
+            return $json['rates'][$this->moneda_cambio];
+        }
+    }
+
+    $moneda = new Moneda("EUR", "AED");
+    ?>
+
     <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
         <h1><a href="index.html">F1Desktop</a></h1>
@@ -128,6 +174,15 @@
     <script>
         viajes.activarCarrusel();
     </script>
+
+    <?php
+        $cambio = $moneda->obtenerCambio();
+
+        if ($cambio !== null) {
+            echo "<p>Equivalencia entre el euro y el dirham de los Emiratos Árabes Unidos:
+                 1€ equivale a $cambio AED.</p>";
+        }
+    ?>
 
 </body>
 </html>
