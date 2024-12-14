@@ -135,7 +135,10 @@ a.active{
 
 /*Mapa*/
 /*Especificidad: 012*/
-body > div:last-of-type{
+/*A veces se genera automaticamente un div al final de la página y otras veces no.
+Para evitar que de vez en cuando el mapa dinamico no funcione, se definen estas reglas*/
+body > div:last-of-type, 
+body > div:nth-last-child(2){
     width: 70em;
     height: 70em;
 }

@@ -144,6 +144,7 @@
             <a class="active" href="viajes.php">Viajes</a>
             <a href="circuito.html">Circuito</a>
             <a href="api.html">Creador de Escuderia</a>
+            <a href="php/consultor.php">Consultor F1</a>
         </nav>
     </header>
 
