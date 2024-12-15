@@ -169,134 +169,146 @@
             }
         }
 
-        public function exportDatabaseToCSV(string $outputFile): void {
+        public function exportDatabaseToCSV() {
             try {
-                $pdo = $this->getConexion();
-                $pdo->exec("USE $this->dbname");
+                $this->pdo->exec("USE $this->dbname");
+                $tables = $this->pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
         
-                // Obtener todas las tablas
-                $tables = $this->getAllTables();
-        
-                // Abrir archivo para escribir
-                $file = fopen($outputFile, 'w');
-                if ($file === false) {
-                    throw new Exception("No se pudo crear el archivo CSV.");
+                // Limpia cualquier salida previa
+                if (ob_get_level() > 0) {
+                    ob_end_clean();
                 }
         
-                foreach ($tables as $table) {
-                    fwrite($file, "##TABLE:$table\n");
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename="database_export.csv"');
+                $output = fopen('php://output', 'w');
         
-                    $stmt = $pdo->query("SELECT * FROM $table");
+                foreach ($tables as $table) {
+                    $stmt = $this->pdo->query("SELECT * FROM $table");
                     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
                     if (!empty($rows)) {
-                        fputcsv($file, array_keys($rows[0])); // Encabezados
+                        fputcsv($output, ["Table: $table"]);
+                        fputcsv($output, array_keys($rows[0]));
+        
                         foreach ($rows as $row) {
-                            fputcsv($file, $row); // Filas
+                            fputcsv($output, $row);
+                        }
+                        fputcsv($output, []);
+                    }
+                }
+        
+                fclose($output);
+                exit; // Termina la ejecución tras enviar el archivo
+            } catch (Exception $e) {
+                echo "Error al exportar la base de datos: " . $e->getMessage();
+            }
+        }
+        
+        public function importDatabaseFromCSV($filePath) {
+            try {
+                $this->pdo->exec("USE $this->dbname");
+        
+                $this->clearDatabase();
+        
+                // Leer datos del archivo CSV
+                $file = fopen($filePath, 'r');
+                $tableData = [];
+                $currentTable = '';
+        
+                while (($line = fgetcsv($file)) !== false) {
+                    if (strpos($line[0], 'Table: ') === 0) {
+                        $currentTable = str_replace('Table: ', '', $line[0]);
+                        $tableData[$currentTable] = ['columns' => [], 'rows' => []];
+                    } elseif (!empty($currentTable) && empty($tableData[$currentTable]['columns'])) {
+                        $tableData[$currentTable]['columns'] = $line;
+                    } elseif (!empty($currentTable)) {
+                        $tableData[$currentTable]['rows'][] = $line;
+                    }
+                }
+                fclose($file);
+        
+                // Importar datos respetando dependencias
+                foreach ($this->getTableDependencyOrder(array_keys($tableData)) as $table) {
+                    if (!empty($tableData[$table]['rows'])) {
+                        $columns = implode(',', array_map(fn($col) => "`$col`", $tableData[$table]['columns']));
+                        foreach ($tableData[$table]['rows'] as $row) {
+                            $placeholders = implode(',', array_fill(0, count($row), '?'));
+                            $stmt = $this->pdo->prepare("INSERT INTO `$table` ($columns) VALUES ($placeholders)");
+                            $stmt->execute($row);
                         }
                     }
                 }
         
-                fclose($file);
+                echo "Base de datos importada desde CSV correctamente.";
             } catch (Exception $e) {
-                echo "Error: " . $e->getMessage();
-            }
-        }
-        
-
-        public function importDatabaseFromCSV(string $inputFile): void {
-            try {
-                $this->pdo->exec("USE $this->dbname");
-                $file = fopen($inputFile, 'r');
-
-                if ($file === false) {
-                    throw new Exception("No se pudo abrir el archivo $inputFile.");
-                }
-
-                $currentTable = null;
-                $headers = [];
-                $stmt = null;
-
-                $this->pdo->beginTransaction();
-
-                while (($line = fgetcsv($file)) !== false) {
-                    // Detectar el inicio de una nueva tabla
-                    if (strpos($line[0], '##TABLE:') === 0) {
-                        $currentTable = str_replace('##TABLE:', '', $line[0]);
-                        // Eliminar datos previos de la tabla
-                        $this->pdo->exec("DELETE FROM $currentTable");
-
-                        // Reiniciar encabezados
-                        $headers = [];
-                        continue;
-                    }
-
-                    // Configurar encabezados
-                    if (empty($headers)) {
-                        $headers = $line;
-                        $placeholders = implode(',', array_fill(0, count($headers), '?'));
-                        $sql = "INSERT INTO $currentTable (" . implode(',', $headers) . ") VALUES ($placeholders)";
-                        $stmt = $this->pdo->prepare($sql);
-                        continue;
-                    }
-
-                    // Insertar datos en la tabla actual
-                    $stmt->execute($line);
-                }
-
-                $this->pdo->commit();
-                fclose($file);
-
-            } catch (PDOException $e) {
-                $this->pdo->rollBack();
                 echo "Error al importar la base de datos: " . $e->getMessage();
-            } catch (Exception $e) {
-                echo "Error general: " . $e->getMessage();
             }
-        }
-
-        private function getAllTables(): array {
-            $stmt = $this->pdo->query("SHOW TABLES");
-            return $stmt->fetchAll(PDO::FETCH_COLUMN);
-        }
-
-        public function handleExportForm(): void {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['export'])) {
-                // Limpia cualquier salida previa
-                ob_start();
+        }        
+    
+        private function clearDatabase() {
+            try {
+                $this->pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
         
-                $outputFile = 'backup_database.csv';
-                $this->exportDatabaseToCSV($outputFile);
+                $tables = $this->pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
+                $orderedTables = $this->getTableDependencyOrder($tables);
         
-                if (file_exists($outputFile)) {
-                    // Limpia el buffer de salida
-                    ob_end_clean();
-        
-                    // Configura encabezados para la descarga
-                    header('Content-Type: text/csv');
-                    header('Content-Disposition: attachment; filename="' . basename($outputFile) . '"');
-                    readfile($outputFile);
-        
-                    // Elimina el archivo temporal
-                    unlink($outputFile);
-        
-                    // Termina la ejecución del script
-                    exit;
-                } else {
-                    echo "Error: No se pudo generar el archivo de exportación.";
+                // Vaciar tablas en orden inverso
+                foreach (array_reverse($orderedTables) as $table) {
+                    $this->pdo->exec("TRUNCATE TABLE `$table`");
                 }
+        
+                $this->pdo->exec("SET FOREIGN_KEY_CHECKS = 1");
+            } catch (Exception $e) {
+                echo "Error al limpiar la base de datos: " . $e->getMessage();
             }
         }
         
+        private function getTableDependencyOrder($tables) {
+            $dependencies = [];
         
-
-        public function handleImportForm(): void {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['import'])) {
-                if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] === UPLOAD_ERR_OK) {
-                    $inputFile = $_FILES['csv_file']['tmp_name'];
-                    $this->importDatabaseFromCSV($inputFile);
-                } else {
-                    echo "Error al subir el archivo CSV.";
+            // Obtener dependencias de cada tabla
+            foreach ($tables as $table) {
+                $result = $this->pdo->query("
+                    SELECT REFERENCED_TABLE_NAME 
+                    FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+                    WHERE TABLE_SCHEMA = '$this->dbname' AND TABLE_NAME = '$table' 
+                    AND REFERENCED_TABLE_NAME IS NOT NULL
+                ");
+                $dependencies[$table] = $result->fetchAll(PDO::FETCH_COLUMN);
+            }
+        
+            // Resolver orden usando un algoritmo topológico
+            $ordered = [];
+            $visited = [];
+        
+            $visit = function ($table) use (&$ordered, &$visited, &$dependencies, &$visit) {
+                if (isset($visited[$table])) return;
+                $visited[$table] = true;
+                foreach ($dependencies[$table] ?? [] as $dependency) {
+                    $visit($dependency);
+                }
+                $ordered[] = $table;
+            };
+        
+            foreach ($tables as $table) {
+                $visit($table);
+            }
+        
+            return $ordered;
+        }
+                
+        public function handleExportImport() {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['export'])) {
+                    $this->exportDatabaseToCSV();
+                } else if (isset($_POST['import'])) {
+                    if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] === UPLOAD_ERR_OK) {
+                        $filePath = $_FILES['csv_file']['tmp_name'];
+                        $this->importDatabaseFromCSV($filePath);
+                    } else {
+                        echo "Error al cargar el archivo CSV.";
+                    }
                 }
             }
         }
@@ -305,8 +317,7 @@
     $database = new Database();
 
     // Manejo de formularios
-    $database->handleExportForm();
-    $database->handleImportForm();
+    $database->handleExportImport();
     ?>
 
     <!-- Datos con el contenidos que aparece en el navegador -->
@@ -337,14 +348,10 @@
         $pdo = $database->getConexion();
     ?>
 
-    <form method="post">
+    <form method="POST" action="consultor.php" enctype="multipart/form-data">
         <button type="submit" name="export">Exportar Base de Datos</button>
-    </form>
-
-    <form method="post" enctype="multipart/form-data">
-        <label for="csv_file">Importar Base de Datos:</label>
-        <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
-        <button type="submit" name="import">Importar</button>
+        <input type="file" name="csv_file" accept=".csv">
+        <button type="submit" name="import">Importar Base de Datos</button>
     </form>
 
     <form method="GET" action="consultor.php">
