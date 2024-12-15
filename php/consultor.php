@@ -41,6 +41,7 @@
         }
 
         public function getConexion(): PDO{
+            $this->pdo->exec("USE $this->dbname");
             return $this->pdo;
         }
 
@@ -194,7 +195,6 @@
                         foreach ($rows as $row) {
                             fputcsv($output, $row);
                         }
-                        fputcsv($output, []);
                     }
                 }
         
@@ -208,7 +208,6 @@
         public function importDatabaseFromCSV($filePath) {
             try {
                 $this->pdo->exec("USE $this->dbname");
-        
                 $this->clearDatabase();
         
                 // Leer datos del archivo CSV
@@ -216,7 +215,11 @@
                 $tableData = [];
                 $currentTable = '';
         
-                while (($line = fgetcsv($file)) !== false) {
+                while (($line = fgetcsv($file, 0, ',', '"')) !== false) {
+                    // Ignorar líneas vacías
+                    if (empty(array_filter($line))) {
+                        continue;
+                    }
                     if (strpos($line[0], 'Table: ') === 0) {
                         $currentTable = str_replace('Table: ', '', $line[0]);
                         $tableData[$currentTable] = ['columns' => [], 'rows' => []];
@@ -232,7 +235,13 @@
                 foreach ($this->getTableDependencyOrder(array_keys($tableData)) as $table) {
                     if (!empty($tableData[$table]['rows'])) {
                         $columns = implode(',', array_map(fn($col) => "`$col`", $tableData[$table]['columns']));
+        
                         foreach ($tableData[$table]['rows'] as $row) {
+                            // Validar que el número de valores coincide con el número de columnas
+                            if (count($row) !== count($tableData[$table]['columns'])) {
+                                throw new Exception("La fila no coincide con las columnas de la tabla `$table`: " . implode(',', $row));
+                            }
+        
                             $placeholders = implode(',', array_fill(0, count($row), '?'));
                             $stmt = $this->pdo->prepare("INSERT INTO `$table` ($columns) VALUES ($placeholders)");
                             $stmt->execute($row);
@@ -240,11 +249,11 @@
                     }
                 }
         
-                echo "Base de datos importada desde CSV correctamente.";
             } catch (Exception $e) {
                 echo "Error al importar la base de datos: " . $e->getMessage();
             }
-        }        
+        }
+        
     
         private function clearDatabase() {
             try {
