@@ -18,8 +18,8 @@ body > section h2 {
     text-align: center;
 }
 
-/*Especificidad: 001*/
-article {
+/*Especificidad: 002*/
+section article {
     width: calc(20%);
     height: 20em;
     margin: 0.5em;
@@ -30,22 +30,23 @@ article {
     transform-style: preserve-3d;
     transition: transform 0.5s;
     position: relative;
+    overflow: visible;
 }
 
-/*Especificidad: 011, 011*/
-article[data-state = "flip"], 
-article[data-state = "revealed"] {
+/*Especificidad: 012, 012*/
+section article[data-state = "flip"], 
+section article[data-state = "revealed"] {
     transform: rotateY(180deg);
 }
 
-/*Especificidad: 011*/
-article[data-state = "init"] {
+/*Especificidad: 012*/
+section article[data-state = "init"] {
     transform: rotateY(0deg);
 }
 
-/*Especificidad: 002, 002*/
-article h3,
-article img {
+/*Especificidad: 003, 003*/
+section article h3,
+section article img {
     margin: 0;
     width: 100%;
     height: 100%;
@@ -55,15 +56,16 @@ article img {
     position: absolute;
 }
 
-/*Especificidad: 002*/
-article h3 {
+/*Especificidad: 003*/
+section article h3 {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-/*Especificidad: 002*/
-article img {
+/*Especificidad: 003*/
+section article img {
     transform: rotateY(180deg);
     display: block;
+    object-fit: fill;
 }
