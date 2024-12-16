@@ -21,7 +21,7 @@ body > section h2 {
 /*Especificidad: 002*/
 section article {
     width: calc(20%);
-    height: 20em;
+    height: 15em;
     margin: 0.5em;
     font-weight: bold;
     text-align: center;
