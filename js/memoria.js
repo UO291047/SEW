@@ -140,6 +140,8 @@ class Memoria {
             return;
         }
     
+        document.querySelector("audio").play();
+
         card["data-state"] = 'flip';
         card.dataset.state = card["data-state"];
     

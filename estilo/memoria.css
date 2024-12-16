@@ -50,7 +50,7 @@ section article img {
     margin: 0;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 0.4em;
     background: #1C7CCC;
     backface-visibility: hidden;
     position: absolute;
@@ -59,8 +59,9 @@ section article img {
 /*Especificidad: 003*/
 section article h3 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    font-size: 100%;
 }
 
 /*Especificidad: 003*/
@@ -68,4 +69,8 @@ section article img {
     transform: rotateY(180deg);
     display: block;
     object-fit: fill;
+}
+
+audio {
+    display: none;
 }
