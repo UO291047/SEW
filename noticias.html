@@ -45,9 +45,13 @@
         const noticias = new Noticias();
     </script>
     
-    <p>
-        <input type="file" onchange="noticias.readInputFile(this.files);">
-    </p>
+    <section>
+        <h3> Cargar noticias </h3>
+        <label>
+            <p>Selecciona el archivo:</p>
+            <input type="file" onchange="noticias.readInputFile(this.files);">
+        </label>
+    </section>
     
     <section>
         <h3> Añadir noticia </h3>
