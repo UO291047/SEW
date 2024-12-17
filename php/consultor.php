@@ -38,6 +38,10 @@
 
             $this->pdo = new PDO("mysql:host=$this->host", $this->user, $this->password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            if(!$this->databaseExists()){
+                $this->create_database();
+            }
         }
 
         public function getConexion(): PDO{
@@ -47,14 +51,18 @@
 
         public function databaseExists(): bool {
             try {
-                $pdo = $this->getConexion();
-                $stmt = $pdo->prepare("SHOW DATABASES LIKE :dbname");
-                $stmt->bindParam(':dbname', $this->dbname);
+                // Ejecuta una consulta para comprobar si la base de datos existe
+                $stmt = $this->pdo->prepare("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = :dbname");
+                $stmt->bindParam(':dbname', $this->dbname, PDO::PARAM_STR);
                 $stmt->execute();
-                return $stmt->rowCount() > 0;
+        
+                // Comprueba si hay resultados
+                $result = $stmt->fetch() !== false;
+                return $result;
+        
             } catch (PDOException $e) {
-                // Manejo de errores, por ejemplo, logear o mostrar el error
-                echo "Error: " . $e->getMessage();
+                // Maneja errores si ocurren
+                echo "Error al comprobar la base de datos: " . $e->getMessage();
                 return false;
             }
         }
@@ -62,10 +70,9 @@
 
         public function create_database(){
             try {
-                $pdo = $this->getConexion();
-                $pdo->exec("DROP DATABASE IF EXISTS $this->dbname");
-                $pdo->exec("CREATE DATABASE $this->dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
-                $pdo->exec("USE $this->dbname");
+                $this->pdo->exec("DROP DATABASE IF EXISTS $this->dbname");
+                $this->pdo->exec("CREATE DATABASE $this->dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
+                $this->pdo->exec("USE $this->dbname");
                 $sqlFilePath = 'informacion.sql';
                 $sqlContent = file_get_contents($sqlFilePath);
 
@@ -77,7 +84,7 @@
 
                 foreach ($statements as $statement) {
                     if (!empty($statement)) {
-                        $pdo->exec($statement);
+                        $this->pdo->exec($statement);
                     }
                 }
             } catch (PDOException $e) {
@@ -351,9 +358,6 @@
     <h2>Consultor F1</h2>
     
     <?php
-        if(!$database->databaseExists()){
-            $database->create_database();
-        }
         $pdo = $database->getConexion();
     ?>
 
