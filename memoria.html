@@ -44,18 +44,22 @@
         <a href="semaforo.php">Semaforo</a>
     </nav>
 
+    <audio >
+        <source src="multimedia/audios/flipCard.mp3" type="audio/mp3">
+    </audio>
+
     <!-- flex-container -->
     <section>
         <h2>Juego Memoria</h2>
+        <a href="ayuda.html">Ayuda</a>
 
-        <audio >
-            <source src="multimedia/audios/flipCard.mp3" type="audio/mp3">
-        </audio>
-    
         <script>       
             const memoria = new Memoria();
         </script>
-    
+
+        <!-- Añadido como parte de las propuestas de las pruebas de usuario -->
+        <button>Reiniciar juego</button>
+        <script>memoria.addEventListenerReload();</script>
     </section>
 </body>
 </html>

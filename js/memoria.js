@@ -90,6 +90,12 @@ class Memoria {
     unflipCards(){
         this.lockBoard = true;
 
+        //Se añade como parte de las propuestas de las pruebas de usuario
+        this.firtsCard["data-state"] = 'fail';
+        this.firtsCard.dataset.state = this.firtsCard["data-state"];
+        this.secondCard["data-state"] = 'fail';
+        this.secondCard.dataset.state = this.secondCard["data-state"];
+
         setTimeout(() => {
             this.firtsCard["data-state"] = 'init';
             this.firtsCard.dataset.state = this.firtsCard["data-state"];
@@ -161,6 +167,15 @@ class Memoria {
         for (const card of cards) {
             card.addEventListener("click", () => this.flipCard(card));
         }
+    }
+
+    recargarPagina(){
+        window.location.reload();
+    }
+
+    addEventListenerReload(){
+        const reload = document.querySelector("button");
+        reload.addEventListener("click", () => this.recargarPagina());
     }
 
 }

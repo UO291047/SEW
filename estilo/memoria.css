@@ -12,8 +12,10 @@ body > section {
     max-width: 100%;
 }
 
-/*Especificidad: 003*/
-body > section h2 {
+/*Especificidad: 003, 003, 003*/
+body > section h2,
+body > section a,
+body > section button {
     width: calc(100%);
     text-align: center;
 }
@@ -33,15 +35,30 @@ section article {
     overflow: visible;
 }
 
-/*Especificidad: 012, 012*/
+/*Especificidad: 012, 012, 012*/
 section article[data-state = "flip"], 
-section article[data-state = "revealed"] {
+section article[data-state = "revealed"],
+section article[data-state = "fail"] {
     transform: rotateY(180deg);
 }
 
 /*Especificidad: 012*/
 section article[data-state = "init"] {
     transform: rotateY(0deg);
+}
+
+/*Añadido como parte de las propuestas de las pruebas de usuario*/
+/*Especificidad: 013, 013*/
+section article[data-state = "fail"] h3,
+section article[data-state = "fail"] img {
+    border-color: crimson;
+}
+
+/*Añadido como parte de las propuestas de las pruebas de usuario*/
+/*Especificidad: 013, 013*/
+section article[data-state = "revealed"] h3,
+section article[data-state = "revealed"] img {
+    border-color: chartreuse;
 }
 
 /*Especificidad: 003, 003*/
@@ -73,6 +90,11 @@ section article img {
     object-fit: fill;
 }
 
+/*Especificidad: 001*/
 audio {
     display: none;
+}
+
+body > section button {
+    margin-top: 3em;
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <meta name ="author" content ="David Gonzalez" />
+    <meta name ="description" content ="Ayuda juego de memoria" />
+    <meta name ="keywords" content ="juegos,memoria,ayuda" />
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+
+    <title>F1Desktop - Juego Memoria</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/imagenes/favicon.ico"/>
+</head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+        <h1><a href="index.html">F1Desktop</a></h1>
+        <nav>
+            <a href="index.html">Index</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="juegos.html">Juegos</a>
+            <a href="meteorologia.html">Meteorologia</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="piloto.html">Piloto</a>
+            <a href="viajes.php">Viajes</a>
+            <a href="circuito.html">Circuito</a>
+            <a href="api.html">Creador de Escuderia</a>
+            <a href="php/consultor.php">Consultor F1</a>
+        </nav>
+    </header>
+
+    <p>Estas en: <a href="index.html">Indice</a> >> <a href="juegos.html">Juegos</a> >> <a href="memoria.html">Memoria</a> >> Ayuda</p>
+
+    <h2>Ayuda</h2>
+
+    <section>
+        <h3>Juego de memoria</h3>
+        <p>Para jugar el juego de memoria, debes tocar encima de las cartas para voltearlas.</p>
+        <p>Cuando las voltees, deberás memorizar la imagen que sale en ellas.</p>
+        <picture>
+            <source srcset="multimedia/imagenes/ejTarjeta1_small.png" media="(max-width: 799px)">
+            <img src="multimedia/imagenes/ejTarjeta1.PNG" alt="Imagen de una tarjeta de memoria volteada">
+        </picture>
+        <p>Si las cartas no son iguales, se volverán a voltear.</p>
+        <p>Si son iguales, se mantendrán volteadas.</p>
+        <picture>
+            <source srcset="multimedia/imagenes/ejTarjeta2_small.png" media="(max-width: 799px)">
+            <img src="multimedia/imagenes/ejTarjeta2.PNG" alt="Imagen de una pareja de tarjetas de memoria correcta">
+        </picture>
+        <p>El juego termina cuando se voltean todas las cartas.</p>
+        <a href="memoria.html">Volver al juego</a>
+    </section>
+</body>
+</html>
